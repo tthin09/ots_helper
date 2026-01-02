@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  article-crawler:
+    build: .
+    container_name: zendesk-crawler
+    volumes:
+      # Persist database and output files on host
+      - ./data:/app/data
+      - ./output:/app/output
+    environment:
+      # Timezone
+      - TZ=Asia/Ho_Chi_Minh
+      
+      # Docker environment marker
+      - DOCKER_CONTAINER=1
+      
+      # Zendesk API Configuration - READ FROM .env FILE
+      - ZENDESK_API_URL=${ZENDESK_API_URL}
+      
+      # Database and output paths
+      - DB_PATH=/app/data/articles.db
+      - OUTPUT_PATH=/app/output
+    restart: unless-stopped
+    # Healthcheck to ensure cron is running
+    healthcheck:
+      test: ["CMD", "pgrep", "cron"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+    # Override CMD to run main.py first, then start cron
+    command: >
+      sh -c "
+      echo 'Running initial crawl...' &&
+      python /app/main.py &&
+      echo 'Initial crawl complete. Starting cron scheduler...' &&
+      cron &&
+      tail -f /var/log/cron.log
+      "
