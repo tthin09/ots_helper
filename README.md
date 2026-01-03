@@ -2,12 +2,15 @@
 
 Automated system that crawls Zendesk articles and syncs them to Google Vertex AI Data Store for AI-powered chatbot responses.
 
-## What It Does
+## 🚀 Try the Live Demo
 
-Crawls your Zendesk help center → Uploads to Google Cloud Storage → Syncs to Vertex AI → Powers intelligent chatbot
+Want to see the chatbot in action first? 
+1. Open [codepen.io/pen](https://codepen.io/pen)
+2. Copy the contents of `website.html` from this repo
+3. Paste it into the HTML box on CodePen
+4. Try asking questions in the chatbot at the bottom of the page!
 
-![Chatbot Demo](result/chatbot-demo.png)
-*Chatbot answers questions with direct links to source articles*
+The chatbot uses the Vertex AI Data Store populated by this crawler system.
 
 ---
 
