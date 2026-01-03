@@ -11,6 +11,9 @@ import logging
 import sys
 import time
 from dotenv import load_dotenv
+from google.cloud import storage
+from google.cloud.storage import transfer_manager
+from google.cloud import discoveryengine_v1beta as discoveryengine
 
 # Load environment variables from .env file
 load_dotenv()
@@ -18,10 +21,15 @@ load_dotenv()
 def setup_logging():
     """Setup logging to both file and console."""
     # Determine log path based on environment
-    if is_running_in_docker():
-        log_file = "/app/data/crawler.log"
-    else:
-        log_file = "crawler.log"
+    logs_dir = get_logs_path()
+    
+    # Create logs directory if it doesn't exist
+    if not os.path.exists(logs_dir):
+        os.makedirs(logs_dir)
+    
+    # Generate log filename with datetime
+    log_filename = datetime.now().strftime("%Y%m%d_%H%M%S.log")
+    log_file = os.path.join(logs_dir, log_filename)
     
     # Create logger
     logger = logging.getLogger()
@@ -84,9 +92,9 @@ def get_db_path():
 def get_output_path():
     """Get output path based on environment."""
     if is_running_in_docker():
-        return "/app/output"
+        return "/app/articles"
     else:
-        return "output"
+        return "articles"
 
 def get_json_metadata_path():
     """Get JSON metadata path based on environment."""
@@ -94,6 +102,13 @@ def get_json_metadata_path():
         return "/app/data/articles_metadata.json"
     else:
         return "articles_metadata.json"
+
+def get_logs_path():
+    """Get logs directory path based on environment."""
+    if is_running_in_docker():
+        return "/app/logs"
+    else:
+        return "logs"
 
 class ArticleDatabase:
     """Manage article metadata using SQLite for scalability."""
@@ -112,7 +127,11 @@ class ArticleDatabase:
                 id TEXT PRIMARY KEY,
                 updated_at TEXT NOT NULL,
                 hash TEXT NOT NULL,
-                last_checked TEXT NOT NULL
+                last_checked TEXT NOT NULL,
+                uploaded INTEGER DEFAULT 0,
+                blob_names TEXT,
+                attached INTEGER DEFAULT 0,
+                article_link TEXT
             )
         ''')
         
@@ -120,6 +139,22 @@ class ArticleDatabase:
         cursor.execute('''
             CREATE INDEX IF NOT EXISTS idx_updated_at ON articles(updated_at)
         ''')
+        
+        # Migrate existing rows to add new columns if they don't exist
+        cursor.execute("PRAGMA table_info(articles)")
+        columns = [column[1] for column in cursor.fetchall()]
+        
+        if 'uploaded' not in columns:
+            cursor.execute('ALTER TABLE articles ADD COLUMN uploaded INTEGER DEFAULT 0')
+        if 'file_ids' not in columns and 'blob_names' not in columns:
+            cursor.execute('ALTER TABLE articles ADD COLUMN blob_names TEXT')
+        # Migrate from old file_ids column to blob_names if needed
+        if 'file_ids' in columns and 'blob_names' not in columns:
+            cursor.execute('ALTER TABLE articles RENAME COLUMN file_ids TO blob_names')
+        if 'attached' not in columns:
+            cursor.execute('ALTER TABLE articles ADD COLUMN attached INTEGER DEFAULT 0')
+        if 'article_link' not in columns:
+            cursor.execute('ALTER TABLE articles ADD COLUMN article_link TEXT')
         
         conn.commit()
         conn.close()
@@ -130,7 +165,7 @@ class ArticleDatabase:
         cursor = conn.cursor()
         
         cursor.execute(
-            'SELECT id, updated_at, hash FROM articles WHERE id = ?',
+            'SELECT id, updated_at, hash, uploaded, blob_names, attached FROM articles WHERE id = ?',
             (str(article_id),)
         )
         
@@ -141,19 +176,22 @@ class ArticleDatabase:
             return {
                 'id': result[0],
                 'updated_at': result[1],
-                'hash': result[2]
+                'hash': result[2],
+                'uploaded': bool(result[3]),
+                'blob_names': result[4],
+                'attached': bool(result[5])
             }
         return None
     
-    def upsert_article(self, article_id, updated_at, content_hash):
+    def upsert_article(self, article_id, updated_at, content_hash, article_link=None):
         """Insert or update article metadata."""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
         cursor.execute('''
-            INSERT OR REPLACE INTO articles (id, updated_at, hash, last_checked)
-            VALUES (?, ?, ?, ?)
-        ''', (str(article_id), updated_at, content_hash, datetime.now().isoformat()))
+            INSERT OR REPLACE INTO articles (id, updated_at, hash, last_checked, uploaded, blob_names, attached, article_link)
+            VALUES (?, ?, ?, ?, 0, NULL, 0, ?)
+        ''', (str(article_id), updated_at, content_hash, datetime.now().isoformat(), article_link))
         
         conn.commit()
         conn.close()
@@ -186,6 +224,69 @@ class ArticleDatabase:
         conn.commit()
         conn.close()
     
+    def mark_as_uploaded(self, article_id, blob_names):
+        """Mark article as uploaded with blob name(s)."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        # Convert list/string to JSON string for storage
+        if isinstance(blob_names, list):
+            blob_names_str = json.dumps(blob_names)
+        else:
+            blob_names_str = blob_names
+        
+        cursor.execute('''
+            UPDATE articles 
+            SET uploaded = 1, blob_names = ?
+            WHERE id = ?
+        ''', (blob_names_str, str(article_id)))
+        
+        conn.commit()
+        conn.close()
+    
+    def get_unuploaded_articles(self):
+        """Get all articles that haven't been uploaded to GCS yet."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            SELECT id FROM articles WHERE uploaded = 0 OR uploaded IS NULL
+        ''')
+        
+        results = cursor.fetchall()
+        conn.close()
+        
+        return [row[0] for row in results]
+    
+    def get_unattached_articles(self):
+        """Get all articles that haven't been uploaded to Vertex AI Data Store yet."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            SELECT id, article_link FROM articles 
+            WHERE (attached = 0 OR attached IS NULL)
+        ''')
+        
+        results = cursor.fetchall()
+        conn.close()
+        
+        return [{'article_id': row[0], 'article_link': row[1]} for row in results]
+    
+    def mark_as_attached(self, article_id):
+        """Mark article as attached to Vertex AI Data Store."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            UPDATE articles 
+            SET attached = 1
+            WHERE id = ?
+        ''', (str(article_id),))
+        
+        conn.commit()
+        conn.close()
+    
     def migrate_from_json(self, json_file=None):
         """One-time migration from JSON to SQLite."""
         if json_file is None:
@@ -206,8 +307,8 @@ class ArticleDatabase:
         migrated = 0
         for article_id, metadata in data.items():
             cursor.execute('''
-                INSERT OR REPLACE INTO articles (id, updated_at, hash, last_checked)
-                VALUES (?, ?, ?, ?)
+                INSERT OR REPLACE INTO articles (id, updated_at, hash, last_checked, uploaded, blob_names, attached)
+                VALUES (?, ?, ?, ?, 0, NULL, 0)
             ''', (
                 str(article_id),
                 metadata.get('updated_at', ''),
@@ -231,6 +332,12 @@ class ArticleConverter:
         self.data = json_data
         self.article = json_data.get('article', {}) if 'article' in json_data else json_data
         self.db = db or ArticleDatabase()
+
+    @staticmethod
+    def sanitize_filename_static(title):
+        """Static method to sanitize filename without instance."""
+        clean_name = re.sub(r'[\\/*?:"<>|]', "", title)
+        return clean_name.strip()
 
     def _sanitize_filename(self, title):
         """
@@ -324,8 +431,40 @@ class ArticleConverter:
         # 3. Post-process Markdown
         final_markdown = self._post_process_markdown(markdown_content)
 
-        # 4. Add Title Block
-        full_content = f"# {title}\n\n{final_markdown}"
+        # 4. Add Title Block and reference link
+        article_link = self.article.get('html_url') or self.article.get('url')
+        
+        # Add reference link at the top if available
+        reference_section = ""
+        if article_link:
+            reference_section = f"**Reference Article Link:** {article_link}\n\n---\n\n"
+        
+        # Insert periodic reference links throughout the article
+        if article_link:
+            lines = final_markdown.split('\n')
+            total_lines = len(lines)
+            
+            if total_lines < 40:
+                # Insert reference link in the middle for short articles
+                middle_index = total_lines // 2
+                reference_inline = f" (Source: {article_link})\n"
+                lines.insert(middle_index, reference_inline)
+            else:
+                # Insert reference link every 20 lines for longer articles
+                reference_inline = f" (Source: {article_link})\n"
+                # Insert from bottom to top to maintain correct line indices
+                insert_positions = list(range(20, total_lines, 20))
+                insert_positions.reverse()
+                for pos in insert_positions:
+                    lines.insert(pos, reference_inline)
+            
+            final_markdown = '\n'.join(lines)
+        
+        full_content = f"# {title}\n\n{reference_section}{final_markdown}"
+        
+        # Add reference link at the end if available
+        if article_link:
+            full_content += f"\n\n---\n**Reference Article Link:** {article_link}"
 
         # 5. Save to file
         if not os.path.exists(output_folder):
@@ -338,14 +477,414 @@ class ArticleConverter:
             f.write(full_content)
 
         # 6. Update database
+        article_link = self.article.get('html_url') or self.article.get('url')
         self.db.upsert_article(
             article_meta['id'],
             article_meta['updated_at'],
-            article_meta['hash']
+            article_meta['hash'],
+            article_link
         )
 
         logging.info(f"  Success! Saved to: {file_path}")
-        return {'status': change_status, 'file_path': file_path, 'article_id': article_id}
+        return {'status': change_status, 'file_path': file_path, 'article_id': article_id, 'article_link': article_link}
+
+class GCSUploader:
+    """Handle uploading markdown files to Google Cloud Storage with batch processing."""
+    
+    def __init__(self, db=None):
+        self.bucket_name = os.getenv("GCS_BUCKET_NAME")
+        self.project_id = os.getenv("GCP_PROJECT_ID")
+        
+        if not self.bucket_name:
+            logging.warning("GCS_BUCKET_NAME not set - GCS upload will be skipped")
+            self.client = None
+        elif not self.project_id:
+            logging.warning("GCP_PROJECT_ID not set - GCS upload will be skipped")
+            self.client = None
+        else:
+            try:
+                self.client = storage.Client(project=self.project_id)
+                self.bucket = self.client.bucket(self.bucket_name)
+                logging.info(f"✓ GCS client initialized successfully")
+            except Exception as e:
+                logging.error(f"Failed to initialize GCS client: {str(e)}")
+                self.client = None
+        
+        self.db = db or ArticleDatabase()
+    
+    def upload_files(self, file_items):
+        """Upload multiple markdown files to GCS in batches.
+        
+        Args:
+            file_items: List of dicts with 'file_path', 'article_id', and optionally 'article_link' keys
+        """
+        results = {'successful': [], 'failed': []}
+        total = len(file_items)
+        
+        if not self.client:
+            logging.warning("GCS client not configured - skipping upload")
+            return results
+        
+        logging.info(f"\n{'='*60}")
+        logging.info(f"=== Uploading {total} files to GCS (Batch Mode) ===")        
+        logging.info(f"Bucket: {self.bucket_name}")
+        logging.info(f"{'='*60}")
+        
+        # Batch size for concurrent uploads
+        BATCH_SIZE = 100
+        batches = [file_items[i:i + BATCH_SIZE] for i in range(0, len(file_items), BATCH_SIZE)]
+        
+        for batch_num, batch in enumerate(batches, 1):
+            logging.info(f"\n--- Processing Batch {batch_num}/{len(batches)} ({len(batch)} files) ---")
+            
+            # Prepare temporary directory for modified files
+            temp_dir = "temp_upload"
+            if not os.path.exists(temp_dir):
+                os.makedirs(temp_dir)
+            
+            temp_files = []
+            file_mapping = {}  # Map temp file to original item
+            blob_name_mapping = {}  # Map temp file to blob name
+            
+            # Step 1: Read and prepare files with reference links
+            for item in batch:
+                file_path = item['file_path']
+                article_id = item['article_id']
+                article_link = item.get('article_link')
+                
+                # Get the original filename without extension
+                original_filename = os.path.basename(file_path)
+                article_name = os.path.splitext(original_filename)[0]  # Remove .md extension
+                
+                # Read file content
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Ensure reference links are present if article_link is available
+                if article_link:
+                    reference_marker = "**Reference Article Link:**"
+                    
+                    if reference_marker not in content:
+                        lines = content.split('\n')
+                        title_line = ""
+                        title_index = -1
+                        for i, line in enumerate(lines):
+                            if line.startswith('# '):
+                                title_line = line
+                                title_index = i
+                                break
+                        
+                        # Add reference at top after title
+                        reference_top = f"\n**Reference Article Link:** {article_link}\n\n---\n"
+                        if title_index >= 0:
+                            lines.insert(title_index + 1, reference_top)
+                        else:
+                            lines.insert(0, reference_top.strip())
+                        
+                        # Insert periodic references throughout
+                        total_lines = len(lines)
+                        if total_lines < 40:
+                            # Insert in middle for short articles
+                            middle_index = total_lines // 2
+                            reference_inline = f"\n(Source: {article_link})\n"
+                            lines.insert(middle_index, reference_inline)
+                        else:
+                            # Insert every 20 lines for longer articles
+                            reference_inline = f"\n(Source: {article_link})\n"
+                            insert_positions = list(range(20, total_lines, 20))
+                            insert_positions.reverse()
+                            for pos in insert_positions:
+                                lines.insert(pos, reference_inline)
+                        
+                        # Add reference at bottom
+                        lines.append(f"\n---\n**Reference Article Link:** {article_link}")
+                        
+                        content = '\n'.join(lines)
+                
+                # Save to temp file with .txt extension using article name
+                temp_filename = f"{article_name}.txt"
+                temp_path = os.path.join(temp_dir, temp_filename)
+                
+                with open(temp_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                
+                temp_files.append(temp_filename)
+                file_mapping[temp_filename] = item
+                blob_name_mapping[temp_filename] = f"articles/{article_name}.txt"
+            
+            # Step 2: Use transfer manager for concurrent upload
+            try:
+                logging.info(f"Starting concurrent upload of {len(temp_files)} files...")
+                
+                upload_results = transfer_manager.upload_many_from_filenames(
+                    self.bucket,
+                    temp_files,
+                    source_directory=temp_dir,
+                    max_workers=8,
+                    blob_name_prefix="articles/"
+                )
+                
+                # Process results
+                for temp_filename, result in zip(temp_files, upload_results):
+                    item = file_mapping[temp_filename]
+                    article_id = item['article_id']
+                    blob_name = blob_name_mapping[temp_filename]
+                    filename = os.path.basename(item['file_path'])
+                    
+                    if isinstance(result, Exception):
+                        logging.error(f"  ✗ {filename}: {result}")
+                        results['failed'].append({
+                            'file_path': item['file_path'],
+                            'article_id': article_id,
+                            'filename': filename,
+                            'error': str(result)
+                        })
+                    else:
+                        logging.info(f"  ✓ {filename} -> {blob_name}")
+                        
+                        # Mark as uploaded and attached in database (auto-sync)
+                        self.db.mark_as_uploaded(article_id, blob_name)
+                        self.db.mark_as_attached(article_id)
+                        
+                        results['successful'].append({
+                            'file_path': item['file_path'],
+                            'article_id': article_id,
+                            'blob_name': blob_name,
+                            'gcs_uri': f"gs://{self.bucket_name}/{blob_name}",
+                            'filename': filename,
+                            'article_link': item.get('article_link')
+                        })
+                
+            except Exception as e:
+                logging.error(f"Batch upload failed: {str(e)}")
+                # Fallback to sequential upload for this batch
+                logging.info("Falling back to sequential upload...")
+                
+                for temp_filename in temp_files:
+                    item = file_mapping[temp_filename]
+                    try:
+                        blob_name = blob_name_mapping[temp_filename]
+                        blob = self.bucket.blob(blob_name)
+                        temp_path = os.path.join(temp_dir, temp_filename)
+                        
+                        blob.upload_from_filename(temp_path, content_type='text/plain')
+                        
+                        article_id = item['article_id']
+                        filename = os.path.basename(item['file_path'])
+                        
+                        logging.info(f"  ✓ {filename} -> {blob_name}")
+                        
+                        # Mark as uploaded and attached in database (auto-sync)
+                        self.db.mark_as_uploaded(article_id, blob_name)
+                        self.db.mark_as_attached(article_id)
+                        
+                        results['successful'].append({
+                            'file_path': item['file_path'],
+                            'article_id': article_id,
+                            'blob_name': blob_name,
+                            'gcs_uri': f"gs://{self.bucket_name}/{blob_name}",
+                            'filename': filename,
+                            'article_link': item.get('article_link')
+                        })
+                        
+                    except Exception as upload_error:
+                        logging.error(f"  ✗ {filename}: {upload_error}")
+                        results['failed'].append({
+                            'file_path': item['file_path'],
+                            'article_id': item['article_id'],
+                            'filename': filename,
+                            'error': str(upload_error)
+                        })
+            
+            finally:
+                # Clean up temp files
+                import shutil
+                if os.path.exists(temp_dir):
+                    shutil.rmtree(temp_dir)
+            
+            logging.info(f"✓ Batch {batch_num} complete")
+        
+        logging.info(f"\n✓ GCS upload complete: {len(results['successful'])} successful, {len(results['failed'])} failed")
+        return results
+
+class VertexAISync:
+    """Handle syncing files from GCS bucket to Vertex AI Data Store."""
+    
+    def __init__(self, db=None):
+        self.project_id = os.getenv("GCP_PROJECT_ID")
+        self.data_store_id = os.getenv("VERTEX_AI_DATA_STORE_ID")
+        self.location = os.getenv("VERTEX_AI_LOCATION", "global")
+        self.bucket_name = os.getenv("GCS_BUCKET_NAME")
+        
+        if not self.project_id:
+            logging.warning("GCP_PROJECT_ID not set - Vertex AI sync will be skipped")
+            self.client = None
+        elif not self.data_store_id:
+            logging.warning("VERTEX_AI_DATA_STORE_ID not set - Vertex AI sync will be skipped")
+            self.client = None
+        else:
+            try:
+                # Use regional endpoint based on location
+                if self.location != "global":
+                    client_options = {
+                        "api_endpoint": f"{self.location}-discoveryengine.googleapis.com"
+                    }
+                    self.client = discoveryengine.DocumentServiceClient(
+                        client_options=client_options
+                    )
+                    logging.info(f"✓ Using regional endpoint: {self.location}-discoveryengine.googleapis.com")
+                else:
+                    self.client = discoveryengine.DocumentServiceClient()
+                    logging.info(f"✓ Using global endpoint")
+                
+                logging.info(f"✓ Vertex AI Data Store client initialized successfully")
+            except Exception as e:
+                logging.error(f"Failed to initialize Vertex AI client: {str(e)}")
+                self.client = None
+        
+        self.db = db or ArticleDatabase()
+    
+    def import_documents_from_gcs(self, uploaded_files):
+        """Import documents from GCS bucket to Vertex AI Data Store.
+        
+        Triggers a single import operation for the entire articles folder in the bucket.
+        
+        Args:
+            uploaded_files: List of successfully uploaded files with blob_name and article_id
+        """
+        if not self.client:
+            logging.warning("Vertex AI client not configured - skipping import")
+            return {'successful': 0, 'failed': 0}
+        
+        if not uploaded_files:
+            logging.info("No files to import to Vertex AI Data Store")
+            return {'successful': 0, 'failed': 0}
+        
+        total = len(uploaded_files)
+        logging.info(f"\n{'='*60}")
+        logging.info(f"=== Triggering import of entire bucket folder to Vertex AI Data Store ===")
+        logging.info(f"Project: {self.project_id}")
+        logging.info(f"Data Store: {self.data_store_id}")
+        logging.info(f"Location: {self.location}")
+        logging.info(f"Bucket: {self.bucket_name}")
+        logging.info(f"Files uploaded: {total}")
+        logging.info(f"{'='*60}")
+        
+        # Construct the parent path
+        parent = f"projects/{self.project_id}/locations/{self.location}/collections/default_collection/dataStores/{self.data_store_id}/branches/default_branch"
+        
+        # Use wildcard to import all files from the articles folder
+        gcs_uri_pattern = f"gs://{self.bucket_name}/articles/*"
+        
+        try:
+            # Create import request for UNSTRUCTURED data (plain text files)
+            # Configure GCS source with data schema for unstructured documents
+            gcs_source = discoveryengine.GcsSource(
+                input_uris=[gcs_uri_pattern],
+                data_schema="content"  # Use "content" schema for unstructured text files
+            )
+            
+            request = discoveryengine.ImportDocumentsRequest(
+                parent=parent,
+                gcs_source=gcs_source,
+                reconciliation_mode=discoveryengine.ImportDocumentsRequest.ReconciliationMode.INCREMENTAL
+            )
+            
+            # Start the import operation
+            logging.info(f"Starting import operation...")
+            logging.info(f"  Pattern: {gcs_uri_pattern}")
+            logging.info(f"  Data schema: content (unstructured text)")
+            
+            operation = self.client.import_documents(request=request)
+            
+            logging.info(f"✓ Import operation triggered successfully")
+            logging.info(f"  Operation: {operation.operation.name}")
+            logging.info(f"  Waiting for import to complete (this may take several minutes)...")
+            
+            # Wait for the operation to complete
+            try:
+                response = operation.result(timeout=1800)  # 30 minute timeout
+                
+                # Parse the response to get detailed import statistics
+                error_samples = []
+                if hasattr(response, 'error_samples') and response.error_samples:
+                    error_samples = response.error_samples[:5]  # Get first 5 errors
+                
+                # Extract detailed metrics from response
+                error_count = 0
+                if hasattr(response, 'error_config') and response.error_config:
+                    error_count = getattr(response.error_config, 'error_count', 0)
+                
+                # Get success count
+                success_count = total - error_count
+                
+                # Try to extract detailed breakdown (added, updated, skipped)
+                # These might be in different fields depending on the API version
+                added_count = 0
+                updated_count = 0
+                skipped_count = 0
+                
+                # Check various possible field names
+                if hasattr(response, 'success_count'):
+                    success_count = response.success_count
+                if hasattr(response, 'created_count'):
+                    added_count = response.created_count
+                if hasattr(response, 'updated_count'):
+                    updated_count = response.updated_count
+                if hasattr(response, 'skipped_count'):
+                    skipped_count = response.skipped_count
+                
+                # If we don't have the breakdown, estimate from total
+                if added_count == 0 and updated_count == 0 and skipped_count == 0:
+                    # All successful documents are considered "added" if we don't have breakdown
+                    added_count = success_count
+                
+                # Log detailed results
+                if error_count > 0:
+                    logging.warning(f"⚠ Import completed with errors")
+                    logging.warning(f"  Successfully imported: {success_count}")
+                    logging.warning(f"    - Added: {added_count}")
+                    logging.warning(f"    - Updated: {updated_count}")
+                    logging.warning(f"    - Skipped: {skipped_count}")
+                    logging.warning(f"  Failed to import: {error_count}")
+                    
+                    if error_samples:
+                        logging.warning(f"  Error samples:")
+                        for error in error_samples:
+                            logging.warning(f"    - {str(error)[:200]}")
+                    
+                    return {
+                        'successful': success_count,
+                        'failed': error_count,
+                        'added': added_count,
+                        'updated': updated_count,
+                        'skipped': skipped_count
+                    }
+                else:
+                    logging.info(f"✓ Import completed successfully")
+                    logging.info(f"  Total documents processed: {total}")
+                    logging.info(f"    - Added: {added_count}")
+                    logging.info(f"    - Updated: {updated_count}")
+                    logging.info(f"    - Skipped: {skipped_count}")
+                    
+                    return {
+                        'successful': total,
+                        'failed': 0,
+                        'added': added_count,
+                        'updated': updated_count,
+                        'skipped': skipped_count
+                    }
+                    
+            except Exception as wait_error:
+                logging.error(f"Error while waiting for import to complete: {str(wait_error)}")
+                logging.error(f"The operation may still be running in the background")
+                logging.error(f"Check the Cloud Console for operation status: {operation.operation.name}")
+                return {'successful': 0, 'failed': total}
+            
+        except Exception as e:
+            error_msg = str(e)
+            logging.error(f"Failed to trigger import operation: {error_msg}")
+            return {'successful': 0, 'failed': total}
 
 class ArticleCrawler:
     """Handle crawling and detecting changes across all articles."""
@@ -502,23 +1041,94 @@ if __name__ == "__main__":
         logging.info("\n" + "="*60)
         logging.info("=== Crawl Summary ===")
         logging.info("="*60)
-        logging.info(f"New articles: {len(changes['new'])}")
+        logging.info(f"Added   articles: {len(changes['new'])}")
         logging.info(f"Updated articles: {len(changes['updated'])}")
-        logging.info(f"Unchanged articles: {len(changes['unchanged'])}")
-        logging.info(f"Deleted articles: {len(changes['deleted'])}")
+        logging.info(f"Skipped articles: {len(changes['unchanged'])}")
         logging.info("-"*60)
         logging.info(f"Total articles processed: {len(changes['new']) + len(changes['updated']) + len(changes['unchanged'])}")
         logging.info(f"Pages crawled: {crawl_stats.get('pages_crawled', 0)}")
         logging.info(f"Crawl time: {format_duration(crawl_stats.get('total_time', 0))}")
         logging.info(f"Avg time per page: {crawl_stats.get('avg_time_per_page', 0):.2f}s")
         
-        # Upload only changed files to cloud
-        files_to_upload = changes['new'] + changes['updated']
-        if files_to_upload:
+        # Collect files for GCS upload: newly changed files
+        files_for_gcs = changes['new'] + changes['updated']
+        
+        # Also check for files that exist locally but haven't been uploaded to GCS yet
+        unuploaded_ids = db.get_unuploaded_articles()
+        if unuploaded_ids:
+            logging.info(f"\nFound {len(unuploaded_ids)} articles not yet uploaded to GCS")
+            output_path = get_output_path()
+            
+            if os.path.exists(output_path):
+                existing_files = {f for f in os.listdir(output_path) if f.endswith('.md')}
+                
+                for article_id in unuploaded_ids:
+                    for filename in existing_files:
+                        file_path = os.path.join(output_path, filename)
+                        
+                        already_queued = any(i['file_path'] == file_path for i in files_for_gcs)
+                        if not already_queued:
+                            files_for_gcs.append({
+                                'file_path': file_path,
+                                'article_id': article_id,
+                                'status': 'existing'
+                            })
+                            break
+        
+        # Upload to GCS (will auto-sync to Vertex AI Data Store)
+        if files_for_gcs:
             logging.info("\n" + "="*60)
-            logging.info("Files to upload to cloud:")
-            for item in files_to_upload:
-                logging.info(f"  - {item['file_path']} ({item['status']})")
+            logging.info(f"Found {len(files_for_gcs)} files to upload to GCS")
+            logging.info("="*60)
+            
+            gcs_upload_start = time.time()
+            gcs_uploader = GCSUploader(db=db)
+            gcs_results = gcs_uploader.upload_files(files_for_gcs)
+            gcs_upload_time = time.time() - gcs_upload_start
+            
+            logging.info("\n" + "="*60)
+            logging.info("=== GCS Upload Summary ===")
+            logging.info("="*60)
+            logging.info(f"Successful GCS uploads: {len(gcs_results['successful'])}")
+            logging.info(f"Failed GCS uploads: {len(gcs_results['failed'])}")
+            logging.info(f"GCS upload time: {format_duration(gcs_upload_time)}")
+            logging.info("Note: Files will auto-sync to Vertex AI Data Store from GCS bucket")
+            
+            if gcs_results['successful']:
+                logging.info("\nSuccessfully uploaded to GCS:")
+                for item in gcs_results['successful']:
+                    logging.info(f"  ✓ {item['filename']} -> {item['blob_name']}")
+            
+            if gcs_results['failed']:
+                logging.warning("\nFailed GCS uploads:")
+                for item in gcs_results['failed']:
+                    logging.warning(f"  ✗ {item['filename']}: {item['error']}")
+            
+            # Sync uploaded files from GCS to Vertex AI Data Store
+            if gcs_results['successful']:
+                logging.info("\n" + "="*60)
+                logging.info("=== Syncing files from GCS to Vertex AI Data Store ===")
+                logging.info("="*60)
+                
+                sync_start = time.time()
+                vertex_sync = VertexAISync(db=db)
+                sync_results = vertex_sync.import_documents_from_gcs(gcs_results['successful'])
+                sync_time = time.time() - sync_start
+                
+                logging.info("\n" + "="*60)
+                logging.info("=== Vertex AI Sync Summary ===")
+                logging.info("="*60)
+                logging.info(f"Successfully synced: {sync_results['successful']}")
+                logging.info(f"  - Added: {sync_results.get('added', 0)}")
+                logging.info(f"  - Updated: {sync_results.get('updated', 0)}")
+                logging.info(f"  - Skipped: {sync_results.get('skipped', 0)}")
+                logging.info(f"Failed to sync: {sync_results['failed']}")
+                logging.info(f"Sync time: {format_duration(sync_time)}")
+                logging.info("="*60)
+        else:
+            logging.info("\n" + "="*60)
+            logging.info("No files to upload to GCS")
+            logging.info("="*60)
         
         # Calculate total execution time
         total_execution_time = time.time() - execution_start

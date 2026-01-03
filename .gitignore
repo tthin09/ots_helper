@@ -1,1 +1,4 @@
 .env
+keys/
+articles/
+service-account-key.json

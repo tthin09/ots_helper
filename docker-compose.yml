@@ -5,9 +5,11 @@ services:
     build: .
     container_name: zendesk-crawler
     volumes:
-      # Persist database and output files on host
+      # Persist database, output files, and logs on host
       - ./data:/app/data
       - ./output:/app/output
+      - ./logs:/app/logs
+      - ./keys:/app/keys:ro  # Read-only mount for GCP credentials
     environment:
       # Timezone
       - TZ=Asia/Ho_Chi_Minh
@@ -15,8 +17,15 @@ services:
       # Docker environment marker
       - DOCKER_CONTAINER=1
       
-      # Zendesk API Configuration - READ FROM .env FILE
+      # Zendesk API Configuration
       - ZENDESK_API_URL=${ZENDESK_API_URL}
+      
+      # GCP Configuration
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - GCS_BUCKET_NAME=${GCS_BUCKET_NAME}
+      - VERTEX_AI_DATA_STORE_ID=${VERTEX_AI_DATA_STORE_ID}
+      - VERTEX_AI_LOCATION=${VERTEX_AI_LOCATION:-us}
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/keys/service-account-key.json
       
       # Database and output paths
       - DB_PATH=/app/data/articles.db
@@ -28,12 +37,3 @@ services:
       interval: 60s
       timeout: 10s
       retries: 3
-    # Override CMD to run main.py first, then start cron
-    command: >
-      sh -c "
-      echo 'Running initial crawl...' &&
-      python /app/main.py &&
-      echo 'Initial crawl complete. Starting cron scheduler...' &&
-      cron &&
-      tail -f /var/log/cron.log
-      "

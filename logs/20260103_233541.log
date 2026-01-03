@@ -1,0 +1,900 @@
+2026-01-03 23:35:41,255 - INFO - === Starting Zendesk Article Crawler ===
+2026-01-03 23:35:41,255 - INFO - Start time: 2026-01-03 23:35:41
+2026-01-03 23:35:41,256 - INFO - Running in Docker: True
+2026-01-03 23:35:41,256 - INFO - Database: /app/data/articles.db
+2026-01-03 23:35:41,256 - INFO - Output: /app/articles
+2026-01-03 23:35:41,257 - INFO - API URL: https://optisignshelp.zendesk.com/api/v2/help_center/en-us/articles
+2026-01-03 23:35:41,265 - INFO - Database initialized in 0.01s
+2026-01-03 23:35:41,266 - INFO - Using API URL from environment: https://optisignshelp.zendesk.com/api/v2/help_center/en-us/articles
+2026-01-03 23:35:41,266 - INFO - 
+Fetching page 1...
+2026-01-03 23:35:41,906 - INFO - Fetched 30 articles in 0.64s
+2026-01-03 23:35:41,906 - INFO - Processing 30 articles...
+2026-01-03 23:35:41,913 - INFO - Processing: How to Use the OptiDev App (ID: 47616485609491) - Status: unchanged
+2026-01-03 23:35:41,913 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,919 - INFO - Processing: OptiKiosk 50 Setup and Troubleshooting Guide (ID: 46299245284243) - Status: unchanged
+2026-01-03 23:35:41,920 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,929 - INFO - Processing: How to Set Up an Outlook Calendar App with Shared Permissions (ID: 45619214182803) - Status: unchanged
+2026-01-03 23:35:41,929 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,936 - INFO - Processing: Using an Enterprise Network (802.1x) with OptiSigns (ID: 44890229616403) - Status: unchanged
+2026-01-03 23:35:41,937 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,942 - INFO - Processing: Chrome App - End of Support on ChromeOS and Workarounds (ID: 43751835488403) - Status: unchanged
+2026-01-03 23:35:41,943 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,948 - INFO - Processing: User Management Example - Chain Restaurant or Retail Store with Multiple Locations (ID: 43657735780627) - Status: unchanged
+2026-01-03 23:35:41,948 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,953 - INFO - Processing: Getting Started with Designer (ID: 42087942047379) - Status: unchanged
+2026-01-03 23:35:41,953 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,959 - INFO - Processing: Designer 2.0 New Features (ID: 41432385864595) - Status: unchanged
+2026-01-03 23:35:41,959 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,965 - INFO - Processing: OptiSigns Pro/ProMax Player Troubleshooting Guide (ID: 40736654972563) - Status: unchanged
+2026-01-03 23:35:41,965 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,971 - INFO - Processing: How to Play Licensed Background Music on Digital Signs with OptiSound (ID: 40671590645651) - Status: unchanged
+2026-01-03 23:35:41,971 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,978 - INFO - Processing: Disk Encryption (ID: 40212027797523) - Status: unchanged
+2026-01-03 23:35:41,978 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,983 - INFO - Processing: OptiStick Troubleshooting Guide (ID: 40147900639891) - Status: unchanged
+2026-01-03 23:35:41,983 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,989 - INFO - Processing: Fixing Unexpected Screen Rotation & Incorrect Orientation with OptiSigns Android Stick (ID: 39488874989587) - Status: unchanged
+2026-01-03 23:35:41,989 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:41,995 - INFO - Processing: How to Use the Tableau App (ID: 39250660729747) - Status: unchanged
+2026-01-03 23:35:41,996 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,001 - INFO - Processing: Handle OAuth Authentication using API Gateway Pre-request Configuration (ID: 39080869746067) - Status: unchanged
+2026-01-03 23:35:42,001 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,006 - INFO - Processing: OptiSigns ProMax Player (ID: 38680194603155) - Status: unchanged
+2026-01-03 23:35:42,007 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,013 - INFO - Processing: Tagging in OptiSigns (ID: 38062664690195) - Status: unchanged
+2026-01-03 23:35:42,013 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,019 - INFO - Processing: Getting Started with an OptiSigns Free Trial (ID: 37966066335891) - Status: unchanged
+2026-01-03 23:35:42,019 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,024 - INFO - Processing: How to Use OptiSigns with Microsoft Teams Rooms (ID: 36911639377683) - Status: unchanged
+2026-01-03 23:35:42,024 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,030 - INFO - Processing: How to access the Troubleshooting page of the OptiSigns Player (ID: 36501302096915) - Status: unchanged
+2026-01-03 23:35:42,030 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,036 - INFO - Processing: How to Using SEPA and iDEAL for EUR Currency Subscription Payments (ID: 35749502945555) - Status: unchanged
+2026-01-03 23:35:42,036 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,042 - INFO - Processing: How to Install a Root Certificate and Display an Internal Website on Screens (ID: 35184720136595) - Status: unchanged
+2026-01-03 23:35:42,042 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,047 - INFO - Processing: Accepted Payment Methods (ID: 34379983350163) - Status: unchanged
+2026-01-03 23:35:42,048 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,053 - INFO - Processing: What Do I Get With an OptiSigns Free Plan? (ID: 33940834613139) - Status: unchanged
+2026-01-03 23:35:42,053 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,059 - INFO - Processing: Making a Video Wall with OptiSigns (Video Wall App) (ID: 33382537925267) - Status: unchanged
+2026-01-03 23:35:42,059 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,065 - INFO - Processing: How to Set Up a PowerBI Service Principal for Use in OptiSigns (ID: 32860569148819) - Status: unchanged
+2026-01-03 23:35:42,065 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,070 - INFO - Processing: Display Salesforce Dashboards with MFA using Web Scripting (ID: 32839794222099) - Status: unchanged
+2026-01-03 23:35:42,071 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,077 - INFO - Processing: How to Order a Preconfigured OptiSigns Android Player Device (ID: 31960461758611) - Status: unchanged
+2026-01-03 23:35:42,077 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,082 - INFO - Processing: Integrating Point-of-Sale (POS) Systems to Build Digital Menu Boards with OptiSync (ID: 31860170199955) - Status: unchanged
+2026-01-03 23:35:42,082 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,088 - INFO - Processing: Configuring Mass Deployment with Jamf Pro MDM on Apple Devices (ID: 31695220475283) - Status: unchanged
+2026-01-03 23:35:42,088 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,089 - INFO - Page 1 processed in 0.18s (total: 0.82s)
+2026-01-03 23:35:42,089 - INFO - 
+Fetching page 2...
+2026-01-03 23:35:42,798 - INFO - Fetched 30 articles in 0.71s
+2026-01-03 23:35:42,798 - INFO - Processing 30 articles...
+2026-01-03 23:35:42,805 - INFO - Processing: Getting Started with Touch Screen Kiosks (ID: 31449657955347) - Status: unchanged
+2026-01-03 23:35:42,805 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,811 - INFO - Processing: How to use Toast API data with OptiSigns (ID: 31113088917907) - Status: unchanged
+2026-01-03 23:35:42,811 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,819 - INFO - Processing: Enabling Lock Down Mode on Touch Screen Devices (ID: 30310366838803) - Status: unchanged
+2026-01-03 23:35:42,819 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,827 - INFO - Processing: How to Use the Mobile App for Remote Control (ID: 30304278652563) - Status: unchanged
+2026-01-03 23:35:42,827 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,833 - INFO - Processing: Guide for Creating Content with OptiSigns (ID: 29792081890323) - Status: unchanged
+2026-01-03 23:35:42,833 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,840 - INFO - Processing: List of Supported Cities for Weather Wall City Themes (ID: 29465595849235) - Status: unchanged
+2026-01-03 23:35:42,840 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,846 - INFO - Processing: How to Clear Cache on a BrightSign Player (ID: 29238381023123) - Status: unchanged
+2026-01-03 23:35:42,847 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,853 - INFO - Processing: How to Create an Attract Screen for Your Kiosk (ID: 29232460955539) - Status: unchanged
+2026-01-03 23:35:42,854 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,861 - INFO - Processing: How to Set Up Dynamic Data Mapping with OptiSync (ID: 29217646663187) - Status: unchanged
+2026-01-03 23:35:42,862 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,868 - INFO - Processing: How To Create and Use Operational Schedules (HDMI-CEC, RS-232) (ID: 28598173096723) - Status: unchanged
+2026-01-03 23:35:42,869 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,875 - INFO - Processing: Performance/Stability issues on Android devices and Best Practices (ID: 28427819992979) - Status: unchanged
+2026-01-03 23:35:42,875 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,882 - INFO - Processing: Samsung Tizen TVs Troubleshooting Guide (ID: 28424138317971) - Status: unchanged
+2026-01-03 23:35:42,882 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,887 - INFO - Processing: Roku Troubleshooting guide (ID: 28421615261971) - Status: unchanged
+2026-01-03 23:35:42,888 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,894 - INFO - Processing: How to Create & Use Playlists (ID: 28295104605843) - Status: unchanged
+2026-01-03 23:35:42,894 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,900 - INFO - Processing: How to Use QR Overlay App in Engage (ID: 28140190892307) - Status: unchanged
+2026-01-03 23:35:42,900 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,906 - INFO - Processing: How to Change Close & Nav Bar Styler Preferences (ID: 28115946505107) - Status: unchanged
+2026-01-03 23:35:42,907 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,913 - INFO - Processing: AI Camera App - Quick Start (ID: 27690296225555) - Status: unchanged
+2026-01-03 23:35:42,913 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,919 - INFO - Processing: Amazon TV / FireStick Troubleshooting Guide (ID: 27463953562899) - Status: unchanged
+2026-01-03 23:35:42,919 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,925 - INFO - Processing: Move Screens or Devices from One Account to Another (ID: 27458261258387) - Status: unchanged
+2026-01-03 23:35:42,925 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,931 - INFO - Processing: How to use iCloud Calendar with OptiSigns (ID: 27356288211859) - Status: unchanged
+2026-01-03 23:35:42,931 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,936 - INFO - Processing: OptiSigns OptiStick Digital Signage Player (ID: 27267311796243) - Status: unchanged
+2026-01-03 23:35:42,936 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,942 - INFO - Processing: How to Lockdown iPad/Single App with Guided Accessibility (ID: 25273043501587) - Status: unchanged
+2026-01-03 23:35:42,943 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,948 - INFO - Processing: How to add a QR Code in designs using OptiSigns’ Designer (ID: 25127398699667) - Status: unchanged
+2026-01-03 23:35:42,949 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,954 - INFO - Processing: What Are Feeds and How to Use It (ID: 24338756617747) - Status: unchanged
+2026-01-03 23:35:42,954 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,960 - INFO - Processing: How to get Google Review link (ID: 23629657318547) - Status: unchanged
+2026-01-03 23:35:42,960 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,966 - INFO - Processing: How to use Check-in app with SMS follow up (ID: 23566927217939) - Status: unchanged
+2026-01-03 23:35:42,966 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,972 - INFO - Processing: Engage Plan - FAQs (ID: 23565267463315) - Status: unchanged
+2026-01-03 23:35:42,972 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,978 - INFO - Processing: How to enable auto-start on FireOS 8 devices like Amazon Fire TV Stick 4K Gen 2 (2023 model) (ID: 23274673797139) - Status: unchanged
+2026-01-03 23:35:42,979 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,984 - INFO - Processing: How to setup AeriCast Meet (Wireless Video Conferencing) (ID: 23030445716883) - Status: unchanged
+2026-01-03 23:35:42,985 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,991 - INFO - Processing: How to Integrate API and Publish API Data via OptiSync (ID: 22875592994195) - Status: unchanged
+2026-01-03 23:35:42,991 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:42,992 - INFO - Page 2 processed in 0.19s (total: 0.90s)
+2026-01-03 23:35:42,992 - INFO - 
+Fetching page 3...
+2026-01-03 23:35:43,555 - INFO - Fetched 30 articles in 0.56s
+2026-01-03 23:35:43,556 - INFO - Processing 30 articles...
+2026-01-03 23:35:43,561 - INFO - Processing: Advanced Playlist Item Playback Control & Campaign Management (ID: 22474034993043) - Status: unchanged
+2026-01-03 23:35:43,561 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,568 - INFO - Processing: How to Share Playlist and Folder with External Users (ID: 21708242980755) - Status: unchanged
+2026-01-03 23:35:43,568 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,575 - INFO - Processing: How to Use Content Tags in The Playlist (ID: 20879903340947) - Status: unchanged
+2026-01-03 23:35:43,576 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,582 - INFO - Processing: Your Facebook Page Doesn't Show in The Dropdown List (ID: 20750060900883) - Status: unchanged
+2026-01-03 23:35:43,583 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,589 - INFO - Processing: How to Use Coordinate-Based Positioning and Sizing of Elements in OptiSigns' Designer (ID: 20428606424723) - Status: unchanged
+2026-01-03 23:35:43,590 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,596 - INFO - Processing: Navigating Through OptiSigns' Template Library (ID: 20425113117459) - Status: unchanged
+2026-01-03 23:35:43,596 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,602 - INFO - Processing: How to use the External Storage on your device (ID: 20153471319187) - Status: unchanged
+2026-01-03 23:35:43,602 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,608 - INFO - Processing: How to Control and Schedule Playlist Items (ID: 20062273670163) - Status: unchanged
+2026-01-03 23:35:43,609 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,614 - INFO - Processing: How to use Secured Dashboard App (ID: 19589190970771) - Status: unchanged
+2026-01-03 23:35:43,615 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,621 - INFO - Processing: How to use Yammer app on OptiSigns (ID: 19171222981523) - Status: unchanged
+2026-01-03 23:35:43,621 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,627 - INFO - Processing: How to use Web Scripting App with 2FA (ID: 19145077187859) - Status: unchanged
+2026-01-03 23:35:43,627 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,634 - INFO - Processing: Push Contents to your Screens (ID: 18988049363859) - Status: unchanged
+2026-01-03 23:35:43,634 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,640 - INFO - Processing: OptiSigns - Getting Started Guide (ID: 18823504383891) - Status: unchanged
+2026-01-03 23:35:43,640 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,645 - INFO - Processing: How to keep OptiSigns running on Fire Stick (ID: 18470994953363) - Status: unchanged
+2026-01-03 23:35:43,646 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,651 - INFO - Processing: How to Customize the Thumbnail of Files, Assets, and Folders (ID: 18399492388371) - Status: unchanged
+2026-01-03 23:35:43,651 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,658 - INFO - Processing: How to Configure Multi-Factor Authentication with your OptiSigns account. (ID: 18381542133779) - Status: unchanged
+2026-01-03 23:35:43,658 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,664 - INFO - Processing: Samsung Smart Signage Platform (SSSP) Supported Model List (ID: 17882306279315) - Status: unchanged
+2026-01-03 23:35:43,665 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,670 - INFO - Processing: How to Create a Content Library Kiosk (ID: 17604055961747) - Status: unchanged
+2026-01-03 23:35:43,671 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,676 - INFO - Processing: How to use OptiSigns Auto Provisioning Template on ChromeOS (ID: 17353256033811) - Status: unchanged
+2026-01-03 23:35:43,676 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,682 - INFO - Processing: Event logging and analytics for External Communication(RS-232) (ID: 17342932920211) - Status: unchanged
+2026-01-03 23:35:43,682 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,694 - INFO - Processing: Display PowerPoint/Google Slides in whole screen when casting from MacBook Pro (ID: 17112492659475) - Status: unchanged
+2026-01-03 23:35:43,694 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,704 - INFO - Processing: How to use Streaming App with OptiSigns (ID: 16364134190355) - Status: unchanged
+2026-01-03 23:35:43,705 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,713 - INFO - Processing: Silent Installation process for OptiSigns Player on Windows (ID: 15861880059283) - Status: unchanged
+2026-01-03 23:35:43,713 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,722 - INFO - Processing: The OptiSigns app keeps turning on the TV screen (ID: 15808407287315) - Status: unchanged
+2026-01-03 23:35:43,722 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,728 - INFO - Processing: How to Design Kiosk Apps Using Kiosk Designer Pro (ID: 15313086319763) - Status: unchanged
+2026-01-03 23:35:43,729 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,736 - INFO - Processing: Cannot find the OptiSigns app on Your Samsung Smart TV (ID: 15268811715347) - Status: unchanged
+2026-01-03 23:35:43,736 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,742 - INFO - Processing: Build Integration Using OptiSigns Enterprise App (ID: 13320135306515) - Status: unchanged
+2026-01-03 23:35:43,742 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,747 - INFO - Processing: OptiSigns IoT Sensor Add-on - Quick Start (ID: 13097501958291) - Status: unchanged
+2026-01-03 23:35:43,748 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,753 - INFO - Processing: Show/Hide downloading status on your Player (ID: 12947300131731) - Status: unchanged
+2026-01-03 23:35:43,753 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,758 - INFO - Processing: What if the OptiSigns app does not auto-start on an Android TV? (ID: 11412877112595) - Status: unchanged
+2026-01-03 23:35:43,759 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:43,759 - INFO - Page 3 processed in 0.20s (total: 0.77s)
+2026-01-03 23:35:43,759 - INFO - 
+Fetching page 4...
+2026-01-03 23:35:44,834 - INFO - Fetched 30 articles in 1.08s
+2026-01-03 23:35:44,835 - INFO - Processing 30 articles...
+2026-01-03 23:35:44,840 - INFO - Processing: How to put Live TV on your screens with OptiSigns (ID: 10159088954387) - Status: unchanged
+2026-01-03 23:35:44,840 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,845 - INFO - Processing: Data Residency and OptiSigns (ID: 9169378546195) - Status: unchanged
+2026-01-03 23:35:44,845 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,853 - INFO - Processing: Using RS-232 to Schedule TV Power On/Off or other commands (ID: 9061950942995) - Status: unchanged
+2026-01-03 23:35:44,853 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,863 - INFO - Processing: How to get the MAC Address on your media player (ID: 8099928867475) - Status: unchanged
+2026-01-03 23:35:44,863 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,871 - INFO - Processing: How to hide certain templates categories in Designers (ID: 7865572050195) - Status: unchanged
+2026-01-03 23:35:44,871 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,877 - INFO - Processing: Host your HTML/JS or Create your own Web App with Hosted Website (ID: 7592123111699) - Status: unchanged
+2026-01-03 23:35:44,877 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,883 - INFO - Processing: Using eyedrop feature to select color in Designer app (ID: 7589195635219) - Status: unchanged
+2026-01-03 23:35:44,883 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,889 - INFO - Processing: Apple TV player release notes & limitations (ID: 6605515731603) - Status: unchanged
+2026-01-03 23:35:44,889 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,895 - INFO - Processing: How to organize templates and share across teams  (ID: 4428997257491) - Status: unchanged
+2026-01-03 23:35:44,895 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,900 - INFO - Processing: Manually control playlist playback with OptiSigns (ID: 4416704273811) - Status: unchanged
+2026-01-03 23:35:44,900 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,906 - INFO - Processing: How to Perform Mass Provisioning with OptiSigns (ID: 4416542923667) - Status: unchanged
+2026-01-03 23:35:44,906 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,912 - INFO - Processing: Introduction (ID: 4414552808467) - Status: unchanged
+2026-01-03 23:35:44,913 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,918 - INFO - Processing: Synchronized playback (Sync Play) feature (ID: 4412065189267) - Status: unchanged
+2026-01-03 23:35:44,919 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,925 - INFO - Processing: Clean install OptiSigns on Raspberry Pi/Linux (ID: 4411956075027) - Status: unchanged
+2026-01-03 23:35:44,925 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,931 - INFO - Processing: How to Connect to 802.1x Enterprise WiFi on Raspberry Pi (ID: 4411743936147) - Status: unchanged
+2026-01-03 23:35:44,931 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,937 - INFO - Processing: How to Integrate Bonusly Digital Signage with Optisigns (ID: 4408946045715) - Status: unchanged
+2026-01-03 23:35:44,937 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,943 - INFO - Processing: How to use Remote Command Execution - Windows/Linux (ID: 4408658251027) - Status: unchanged
+2026-01-03 23:35:44,943 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,949 - INFO - Processing: How to Use Weather Apps Based on Device Location (ID: 4408052029587) - Status: unchanged
+2026-01-03 23:35:44,949 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,955 - INFO - Processing: How to set up SAML 2.0 with OptiSigns and Google Workspace (ID: 4407493404307) - Status: unchanged
+2026-01-03 23:35:44,955 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,960 - INFO - Processing: How to set up SAML 2.0 with OptiSigns and OneLogin(Shibboleth) (ID: 4407476403859) - Status: unchanged
+2026-01-03 23:35:44,961 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,966 - INFO - Processing: How to set up SAML 2.0 with OptiSigns and OneLogin (ID: 4407386819731) - Status: unchanged
+2026-01-03 23:35:44,967 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,972 - INFO - Processing: How to Set Up SAML 2.0 with OptiSigns and MS Entra ID (formerly Azure AD) (ID: 4407252213395) - Status: unchanged
+2026-01-03 23:35:44,972 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,978 - INFO - Processing: SAML Integration Strategies & Best Practices (ID: 4407128433299) - Status: unchanged
+2026-01-03 23:35:44,978 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,983 - INFO - Processing: Map View & Screen Location settings (ID: 4407068788883) - Status: unchanged
+2026-01-03 23:35:44,984 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,989 - INFO - Processing: How to "unpin" OptiSigns app on your Managed Android Stick Player (ID: 4404827608467) - Status: unchanged
+2026-01-03 23:35:44,989 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:44,994 - INFO - Processing: Add 1 or multiple assets to many playlists at the same time (ID: 4404616139411) - Status: unchanged
+2026-01-03 23:35:44,995 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,000 - INFO - Processing: How to set up SAML 2.0  with OptiSigns and Okta (ID: 4404590815635) - Status: unchanged
+2026-01-03 23:35:45,000 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,006 - INFO - Processing: How to Use OptiSigns' Template & Designer to Make Your Digital Signs in Minutes (ID: 4404151402899) - Status: unchanged
+2026-01-03 23:35:45,006 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,011 - INFO - Processing: How to approve OptiSigns as Enterprise App on Microsoft Azure (for PowerBI, Calendar, etc. access) (ID: 4403616315539) - Status: unchanged
+2026-01-03 23:35:45,012 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,018 - INFO - Processing: How to set up Audit Log for your account (ID: 4403332894867) - Status: unchanged
+2026-01-03 23:35:45,018 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,018 - INFO - Page 4 processed in 0.18s (total: 1.26s)
+2026-01-03 23:35:45,018 - INFO - 
+Fetching page 5...
+2026-01-03 23:35:45,585 - INFO - Fetched 30 articles in 0.57s
+2026-01-03 23:35:45,585 - INFO - Processing 30 articles...
+2026-01-03 23:35:45,590 - INFO - Processing: How to set up Monitoring Alert feature  (ID: 4403306341523) - Status: unchanged
+2026-01-03 23:35:45,590 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,596 - INFO - Processing: How to use the Web Scripting App (ID: 1500012522362) - Status: unchanged
+2026-01-03 23:35:45,596 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,604 - INFO - Processing: Adjust the GPU memory on the Raspberry Pi (ID: 1500010436341) - Status: unchanged
+2026-01-03 23:35:45,604 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,611 - INFO - Processing: Resolve Autostart issues on your Android TV devices (ID: 1500009937122) - Status: unchanged
+2026-01-03 23:35:45,611 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,617 - INFO - Processing: Install/Update OptiSigns player on RPi via script (ID: 1500009382101) - Status: unchanged
+2026-01-03 23:35:45,617 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,624 - INFO - Processing: How to enable SSH for your Raspberry Pi (ID: 1500008008981) - Status: unchanged
+2026-01-03 23:35:45,624 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,632 - INFO - Processing: How to use Live TV with Ads App (ID: 1500006130902) - Status: unchanged
+2026-01-03 23:35:45,632 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,640 - INFO - Processing: Multi-select assets in Files/Assets view (ID: 1500006056101) - Status: unchanged
+2026-01-03 23:35:45,640 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,647 - INFO - Processing: Clean install of OptiSigns Player on Windows (ID: 1500005467601) - Status: unchanged
+2026-01-03 23:35:45,647 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,653 - INFO - Processing: How to move screen to other team (ID: 1500003161182) - Status: unchanged
+2026-01-03 23:35:45,653 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,659 - INFO - Processing: How to mass deploy OptiSigns on Raspberry Pi devices (ID: 360063098753) - Status: unchanged
+2026-01-03 23:35:45,659 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,664 - INFO - Processing: How to install OptiSigns as Screensaver on Roku (ID: 1500002383502) - Status: unchanged
+2026-01-03 23:35:45,664 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,671 - INFO - Processing: How to mix playlists and maintain screen time share with OptiSigns Content Rotation App (ID: 1500001561861) - Status: unchanged
+2026-01-03 23:35:45,671 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,677 - INFO - Processing: Advanced: Enforce SSO login for your account (ID: 360061576673) - Status: unchanged
+2026-01-03 23:35:45,678 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,683 - INFO - Processing: How to allow the OptiSigns app to access local storage on a Fire Stick (ID: 1500000941981) - Status: unchanged
+2026-01-03 23:35:45,683 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,688 - INFO - Processing: How to use YouTube Playlist with OptiSigns (ID: 360059386254) - Status: unchanged
+2026-01-03 23:35:45,688 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,693 - INFO - Processing: Billing: How Do I Change my Subscription Plan? (ID: 1500000493782) - Status: unchanged
+2026-01-03 23:35:45,694 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,699 - INFO - Processing: Custom Branding Settings (ID: 1500000485202) - Status: unchanged
+2026-01-03 23:35:45,699 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,705 - INFO - Processing: Advanced: Custom Domain mapping (ID: 1500000480302) - Status: unchanged
+2026-01-03 23:35:45,705 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,723 - INFO - Processing: How to manually install & activate OptiSigns AI Add-on on Linux or Raspberry Pi (ID: 360060676993) - Status: unchanged
+2026-01-03 23:35:45,724 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,738 - INFO - Processing: How to run OptiSigns AI Add-on on start up in Windows (ID: 360058345334) - Status: unchanged
+2026-01-03 23:35:45,738 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,745 - INFO - Processing: Audience Intelligence (AI Camera) FAQs (ID: 360058259834) - Status: unchanged
+2026-01-03 23:35:45,746 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,753 - INFO - Processing: Advanced: Proof of Play (or Playback report) (ID: 360058936513) - Status: unchanged
+2026-01-03 23:35:45,753 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,759 - INFO - Processing: Pre-configure Wifi with OptiSigns devices (ID: 360055549854) - Status: unchanged
+2026-01-03 23:35:45,759 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,765 - INFO - Processing: How does pre-configured devices labeled in shipping package? (ID: 360055546594) - Status: unchanged
+2026-01-03 23:35:45,765 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,771 - INFO - Processing: Advanced: How to Install & Activate OptiSigns Remote Agent on Windows (ID: 360057327693) - Status: unchanged
+2026-01-03 23:35:45,771 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,777 - INFO - Processing: Remotely Control and Command OptiSigns Devices (ID: 360055486554) - Status: unchanged
+2026-01-03 23:35:45,777 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,783 - INFO - Processing: How to Enable/Disable Auto Update for OptiSigns app on Fire TV (ID: 360055328454) - Status: unchanged
+2026-01-03 23:35:45,783 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,788 - INFO - Processing: Advanced: How to Manually Install & Activate OptiSigns Remote Agent on Linux or Raspberry Pi (ID: 360057146573) - Status: unchanged
+2026-01-03 23:35:45,789 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,794 - INFO - Processing: How to Use USB HUB Adaptor Connect to Your Fire Stick (ID: 360055080914) - Status: unchanged
+2026-01-03 23:35:45,794 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:45,794 - INFO - Page 5 processed in 0.21s (total: 0.78s)
+2026-01-03 23:35:45,795 - INFO - 
+Fetching page 6...
+2026-01-03 23:35:46,341 - INFO - Fetched 30 articles in 0.55s
+2026-01-03 23:35:46,341 - INFO - Processing 30 articles...
+2026-01-03 23:35:46,346 - INFO - Processing: How to Change Time Zone on Your Raspberry Pi device (ID: 360056655633) - Status: unchanged
+2026-01-03 23:35:46,346 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,351 - INFO - Processing: How To Connect To WiFi For Raspberry Pi (ID: 360056627833) - Status: unchanged
+2026-01-03 23:35:46,352 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,357 - INFO - Processing: OptiSigns Side Menu Options (ID: 360056090593) - Status: unchanged
+2026-01-03 23:35:46,358 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,364 - INFO - Processing: How to Factory Reset Your Fire Stick device  (ID: 360054298754) - Status: unchanged
+2026-01-03 23:35:46,364 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,370 - INFO - Processing: How to Clear Cache on Your Fire Stick device (ID: 360056087613) - Status: unchanged
+2026-01-03 23:35:46,370 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,377 - INFO - Processing: How to Change Time Zone on Your Fire Stick device (ID: 360056086653) - Status: unchanged
+2026-01-03 23:35:46,377 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,382 - INFO - Processing: How to set up OptiSigns Player on ChromeOS with Chrome Device Management (ID: 360054033374) - Status: unchanged
+2026-01-03 23:35:46,383 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,388 - INFO - Processing: How to uninstall/reinstall OptiSigns app from your Fire Stick device (ID: 360053198573) - Status: unchanged
+2026-01-03 23:35:46,388 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,394 - INFO - Processing: How to Update Fire TV OS to latest version (ID: 360052361293) - Status: unchanged
+2026-01-03 23:35:46,395 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,401 - INFO - Processing: How to Set up an Instagram Business/Creator account (ID: 360051745633) - Status: unchanged
+2026-01-03 23:35:46,401 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,407 - INFO - Processing: Difference between Instagram & Instagram Business App (ID: 360050728934) - Status: unchanged
+2026-01-03 23:35:46,408 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,413 - INFO - Processing: How to use Overlay layers with OptiSigns (ID: 360050602413) - Status: unchanged
+2026-01-03 23:35:46,414 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,419 - INFO - Processing: Edit Screen: What does each option do? (ID: 360048914673) - Status: unchanged
+2026-01-03 23:35:46,419 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,425 - INFO - Processing: Whitelist OptiSigns IP addresses & ports (ID: 360047275934) - Status: unchanged
+2026-01-03 23:35:46,426 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,431 - INFO - Processing: Amazon Fire Stick and security considerations (ID: 360047232054) - Status: unchanged
+2026-01-03 23:35:46,431 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,437 - INFO - Processing: Advanced Security: Managing User Roles (ID: 360046356113) - Status: unchanged
+2026-01-03 23:35:46,437 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,443 - INFO - Processing: There's no sounds output for my Raspberry Pi (ID: 360044614514) - Status: unchanged
+2026-01-03 23:35:46,444 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,449 - INFO - Processing: Folder Level Permissions (ID: 360044600474) - Status: unchanged
+2026-01-03 23:35:46,449 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,456 - INFO - Processing: Organizing your files, assets, playlists and schedules by using Folders (ID: 360043670633) - Status: unchanged
+2026-01-03 23:35:46,456 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,462 - INFO - Processing: How to Create and Use Nested Playlists (ID: 360043621953) - Status: unchanged
+2026-01-03 23:35:46,462 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,467 - INFO - Processing: How to set an asset to Live or Expire at specific time (ID: 360042736794) - Status: unchanged
+2026-01-03 23:35:46,468 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,475 - INFO - Processing: How to re-encode video files for better compatibility on your devices (ID: 360042143753) - Status: unchanged
+2026-01-03 23:35:46,475 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,481 - INFO - Processing: Roku Release Notes & Limitation (ID: 360042143333) - Status: unchanged
+2026-01-03 23:35:46,482 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,487 - INFO - Processing: How to change Billing information (ID: 360041587014) - Status: unchanged
+2026-01-03 23:35:46,488 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,493 - INFO - Processing: My image, content are bleeding off the screens with Windows, Linux, Mac, Raspberry Pi app (need screen calibration) (ID: 360041570153) - Status: unchanged
+2026-01-03 23:35:46,493 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,499 - INFO - Processing: Assign Default Content for Schedules (ID: 360040943374) - Status: unchanged
+2026-01-03 23:35:46,499 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,506 - INFO - Processing: How to install OptiSigns as channel/app on Roku (ID: 360039566974) - Status: unchanged
+2026-01-03 23:35:46,506 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,512 - INFO - Processing: Video codec or video playback issues (ID: 360038992973) - Status: unchanged
+2026-01-03 23:35:46,512 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,519 - INFO - Processing: How to use the Atlassian JIRA app (ID: 360037416494) - Status: unchanged
+2026-01-03 23:35:46,519 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,524 - INFO - Processing: How to display content inside websites that require login? (ID: 360037391854) - Status: unchanged
+2026-01-03 23:35:46,525 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:46,525 - INFO - Page 6 processed in 0.18s (total: 0.73s)
+2026-01-03 23:35:46,525 - INFO - 
+Fetching page 7...
+2026-01-03 23:35:47,102 - INFO - Fetched 30 articles in 0.58s
+2026-01-03 23:35:47,102 - INFO - Processing 30 articles...
+2026-01-03 23:35:47,108 - INFO - Processing: Adjusting social, news wall speeds (ID: 360036465673) - Status: unchanged
+2026-01-03 23:35:47,108 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,115 - INFO - Processing: My image, content are bleeding off the screens with Fire TV (need screen calibration) (ID: 360035538093) - Status: unchanged
+2026-01-03 23:35:47,115 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,122 - INFO - Processing: Working with Teams and Security Levels (ID: 360034883113) - Status: unchanged
+2026-01-03 23:35:47,122 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,128 - INFO - Processing: Windows (ID: 360034379293) - Status: unchanged
+2026-01-03 23:35:47,129 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,147 - INFO - Processing: PowerPoint Transition and Animation effect (ID: 360034219593) - Status: unchanged
+2026-01-03 23:35:47,147 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,171 - INFO - Processing: PowerPoint Resolution, Size for use with Digital Signage (ID: 360033693534) - Status: unchanged
+2026-01-03 23:35:47,171 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,189 - INFO - Processing: Stretch your images, document - Stretch vs Fit vs Zoom your content (ID: 360026610194) - Status: unchanged
+2026-01-03 23:35:47,190 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,201 - INFO - Processing: How to create a scrolling strip / bars (ID: 360026559613) - Status: unchanged
+2026-01-03 23:35:47,201 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,214 - INFO - Processing: How to Create and Use the Split Screen App (ID: 360026559573) - Status: unchanged
+2026-01-03 23:35:47,214 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,222 - INFO - Processing: How Can I Remove/Delete Uploaded Files or Assets? (ID: 360025661053) - Status: unchanged
+2026-01-03 23:35:47,223 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,229 - INFO - Processing: How to start OptiSigns automatically when devices boot up (ID: 360025626853) - Status: unchanged
+2026-01-03 23:35:47,229 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,236 - INFO - Processing: Can I Disable the Download Button for Assets? (ID: 360020931734) - Status: unchanged
+2026-01-03 23:35:47,236 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,242 - INFO - Processing: How to Install an APK file on your Fire TV (ID: 360016313754) - Status: unchanged
+2026-01-03 23:35:47,243 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,249 - INFO - Processing: Does OptiSigns offer Non-profit/Education discount? (ID: 360016252654) - Status: unchanged
+2026-01-03 23:35:47,249 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,256 - INFO - Processing: How to Upload & Manage Your Files/ Assets (ID: 360016247974) - Status: unchanged
+2026-01-03 23:35:47,256 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,262 - INFO - Processing: What types of files are supported? (ID: 360016342373) - Status: unchanged
+2026-01-03 23:35:47,263 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,270 - INFO - Processing: Animation (ID: 42305104960147) - Status: unchanged
+2026-01-03 23:35:47,270 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,277 - INFO - Processing: OptiSigns Pro Digital Signage Player (ID: 32272215514131) - Status: unchanged
+2026-01-03 23:35:47,277 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,284 - INFO - Processing: How to Use the OptiSigns Mobile Admin App (ID: 30003143806099) - Status: unchanged
+2026-01-03 23:35:47,284 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,291 - INFO - Processing: How to add a Microsoft 365 Excel Spreadsheet as a DataSource for OptiSync (ID: 29863080711059) - Status: unchanged
+2026-01-03 23:35:47,291 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,297 - INFO - Processing: How to Manage and Edit Your Playlist Settings (ID: 28295074995859) - Status: unchanged
+2026-01-03 23:35:47,298 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,303 - INFO - Processing: How to Fix The Scaling Issue on OptiSigns Android Device Gen 3 (ID: 28026588373139) - Status: unchanged
+2026-01-03 23:35:47,303 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,309 - INFO - Processing: How to get the most out of your Digital Signs (ID: 25607930101907) - Status: unchanged
+2026-01-03 23:35:47,309 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,317 - INFO - Processing: How to Share Contents with Other Users/Teams (ID: 18986181635859) - Status: unchanged
+2026-01-03 23:35:47,317 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,323 - INFO - Processing: How to get the list of playlists where the asset is used  (ID: 4472060158355) - Status: unchanged
+2026-01-03 23:35:47,323 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,329 - INFO - Processing: Generate & Manage OptiSigns API Key (ID: 4414563797139) - Status: unchanged
+2026-01-03 23:35:47,330 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,335 - INFO - Processing: View Billing History and Download Receipts (ID: 360054557434) - Status: unchanged
+2026-01-03 23:35:47,335 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,341 - INFO - Processing: How to link Instagram Business or Creator Account to Facebook Account (ID: 360050855313) - Status: unchanged
+2026-01-03 23:35:47,341 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,346 - INFO - Processing: How to use Google Slides with OptiSigns (ID: 360050642833) - Status: unchanged
+2026-01-03 23:35:47,347 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,352 - INFO - Processing: MacOS (ID: 360041501494) - Status: unchanged
+2026-01-03 23:35:47,352 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,353 - INFO - Page 7 processed in 0.25s (total: 0.83s)
+2026-01-03 23:35:47,353 - INFO - 
+Fetching page 8...
+2026-01-03 23:35:47,955 - INFO - Fetched 30 articles in 0.60s
+2026-01-03 23:35:47,955 - INFO - Processing 30 articles...
+2026-01-03 23:35:47,962 - INFO - Processing: How to Preview a Screen (ID: 360035739414) - Status: unchanged
+2026-01-03 23:35:47,962 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,969 - INFO - Processing: How to use a PDF with OptiSigns (ID: 360024310813) - Status: unchanged
+2026-01-03 23:35:47,970 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,977 - INFO - Processing: How to Check WiFi Signal Strength on the Amazon Fire TV Stick (ID: 360016380053) - Status: unchanged
+2026-01-03 23:35:47,978 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,984 - INFO - Processing: Your Templates (ID: 42830652820115) - Status: unchanged
+2026-01-03 23:35:47,985 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,991 - INFO - Processing: How to Contact OptiSigns Support (ID: 35626165056787) - Status: unchanged
+2026-01-03 23:35:47,992 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:47,998 - INFO - Processing: OptiSigns Pro Player Advanced Features (ID: 35577511423635) - Status: unchanged
+2026-01-03 23:35:47,998 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,006 - INFO - Processing: How to add Google Sheets as a DataSource for OptiSync (ID: 29838866920211) - Status: unchanged
+2026-01-03 23:35:48,006 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,013 - INFO - Processing: I received the OptiSigns device but it's OnHold and cannot assign content (ID: 27676133574547) - Status: unchanged
+2026-01-03 23:35:48,014 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,021 - INFO - Processing: How to cancel subscription or pause subscription for Seasonal Use Case (ID: 17639078588691) - Status: unchanged
+2026-01-03 23:35:48,022 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,029 - INFO - Processing: How to install OptiSigns Player on Apple TV (ID: 6636047009427) - Status: unchanged
+2026-01-03 23:35:48,029 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,036 - INFO - Processing: Get Started with OptiSigns API (ID: 4414563863827) - Status: unchanged
+2026-01-03 23:35:48,036 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,043 - INFO - Processing: Advanced: How to assign security for users to only edit certain zones of the screens (ID: 1500002047642) - Status: unchanged
+2026-01-03 23:35:48,044 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,051 - INFO - Processing: Set OptiSigns as ScreenSaver on Windows (ID: 360053211594) - Status: unchanged
+2026-01-03 23:35:48,051 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,057 - INFO - Processing: Show YouTube video's subtitle/closed caption (ID: 360051014773) - Status: unchanged
+2026-01-03 23:35:48,058 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,064 - INFO - Processing: Linux (ID: 360034379573) - Status: unchanged
+2026-01-03 23:35:48,065 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,071 - INFO - Processing: Changing screen's orientation (portrait & landscape) (ID: 360016833514) - Status: unchanged
+2026-01-03 23:35:48,072 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,080 - INFO - Processing: How can I remotely start/restart OptiSigns app on Fire TV? (ID: 360016485633) - Status: unchanged
+2026-01-03 23:35:48,080 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,088 - INFO - Processing: How to create and use Instagram Wall (ID: 360016388733) - Status: unchanged
+2026-01-03 23:35:48,088 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,096 - INFO - Processing: What if I want to increase, decrease number of screens during the month? (ID: 360016219114) - Status: unchanged
+2026-01-03 23:35:48,097 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,104 - INFO - Processing: Widgets in Designer (ID: 42436941395475) - Status: unchanged
+2026-01-03 23:35:48,104 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,112 - INFO - Processing: How to Display Dynamic Event Schedules Using OptiSync (ID: 33468569218067) - Status: unchanged
+2026-01-03 23:35:48,112 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,119 - INFO - Processing: Where to Buy OptiSigns Devices (ID: 32129032857875) - Status: unchanged
+2026-01-03 23:35:48,120 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,127 - INFO - Processing: How to Fix The Scaling Issue on OptiSigns Android Device (ID: 27607906766483) - Status: unchanged
+2026-01-03 23:35:48,128 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,134 - INFO - Processing: How to manage Sub-Account billing with OptiSigns (ID: 17129313173395) - Status: unchanged
+2026-01-03 23:35:48,134 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,141 - INFO - Processing: How to install OptiSigns on Samsung Tizen Smart TVs (ID: 14726570281875) - Status: unchanged
+2026-01-03 23:35:48,141 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,148 - INFO - Processing: GraphQL API Tutorial: Pair and Assign Content to Screen (ID: 4414553099667) - Status: unchanged
+2026-01-03 23:35:48,148 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,155 - INFO - Processing: Moderate your social media feeds (ID: 4403015887763) - Status: unchanged
+2026-01-03 23:35:48,156 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,163 - INFO - Processing: Android TV / ChromeCast (ID: 1500004699122) - Status: unchanged
+2026-01-03 23:35:48,163 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,170 - INFO - Processing: How to use Approval Workflow feature (ID: 360063693093) - Status: unchanged
+2026-01-03 23:35:48,170 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,177 - INFO - Processing: What hardware and devices are supported? (ID: 360021855653) - Status: unchanged
+2026-01-03 23:35:48,177 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,177 - INFO - Page 8 processed in 0.22s (total: 0.82s)
+2026-01-03 23:35:48,178 - INFO - 
+Fetching page 9...
+2026-01-03 23:35:48,771 - INFO - Fetched 30 articles in 0.59s
+2026-01-03 23:35:48,771 - INFO - Processing 30 articles...
+2026-01-03 23:35:48,782 - INFO - Processing: How to tell which Dropbox account that I linked to OptiSigns? (ID: 360019588654) - Status: unchanged
+2026-01-03 23:35:48,783 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,791 - INFO - Processing: How to Use Weather Apps in OptiSigns (ID: 360017964153) - Status: unchanged
+2026-01-03 23:35:48,791 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,798 - INFO - Processing: Assign content to your screens (ID: 360016375153) - Status: unchanged
+2026-01-03 23:35:48,798 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,805 - INFO - Processing: OptiKiosk Setup Hub (ID: 44650391786131) - Status: unchanged
+2026-01-03 23:35:48,805 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,811 - INFO - Processing: Photos, GIFs, and QR Codes in Designer (ID: 42526907045651) - Status: unchanged
+2026-01-03 23:35:48,811 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,818 - INFO - Processing: How to Display Birthday Lists with OptiSync Data Mapping and Google Sheets (ID: 29979283289235) - Status: unchanged
+2026-01-03 23:35:48,818 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,824 - INFO - Processing: Display Device Info Onscreen (ID: 27070013297427) - Status: unchanged
+2026-01-03 23:35:48,824 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,830 - INFO - Processing: Present/ share iOS/ Android phone/ tablet to your screen with OptiSigns & AeriCast Add-on (ID: 14557706459283) - Status: unchanged
+2026-01-03 23:35:48,830 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,836 - INFO - Processing: Tutorial: Create, Update, Add, Remove items from Playlists (ID: 4414558295955) - Status: unchanged
+2026-01-03 23:35:48,836 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,841 - INFO - Processing: Multilingual and multi-currency (ID: 4411762539027) - Status: unchanged
+2026-01-03 23:35:48,841 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,847 - INFO - Processing: How to install OptiSigns Player on Android Boxes (ID: 1500008112642) - Status: unchanged
+2026-01-03 23:35:48,848 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,853 - INFO - Processing: Raspberry Pi (ID: 360034379693) - Status: unchanged
+2026-01-03 23:35:48,854 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,860 - INFO - Processing: Multi-users: Invite your team members to your account (ID: 360016990233) - Status: unchanged
+2026-01-03 23:35:48,860 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,865 - INFO - Processing: Set up & add a screen (ID: 360016374813) - Status: unchanged
+2026-01-03 23:35:48,866 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,871 - INFO - Processing: OptiKiosk 10 Setup and Troubleshooting Guide (ID: 44652521310099) - Status: unchanged
+2026-01-03 23:35:48,872 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,877 - INFO - Processing: Customize Text (ID: 42157810188179) - Status: unchanged
+2026-01-03 23:35:48,877 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,883 - INFO - Processing: Tutorial: Creating or Updating Website Assets Using GraphQL (ID: 36562094987795) - Status: unchanged
+2026-01-03 23:35:48,883 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,889 - INFO - Processing: How to Create Custom News Feeds with  OptiSync (ID: 35337746613139) - Status: unchanged
+2026-01-03 23:35:48,889 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,895 - INFO - Processing: Amazon Signage Stick (ID: 34087061669523) - Status: unchanged
+2026-01-03 23:35:48,895 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,901 - INFO - Processing: How to use AeriCast Add-on for Wireless Presentation and Video Conferencing (ID: 14502723487379) - Status: unchanged
+2026-01-03 23:35:48,901 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,907 - INFO - Processing: How to Change the Account Owner (ID: 4404616314515) - Status: unchanged
+2026-01-03 23:35:48,907 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,913 - INFO - Processing: How to Install OptiSigns as an APK File on Android Devices (ID: 1500011891542) - Status: unchanged
+2026-01-03 23:35:48,913 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,918 - INFO - Processing: How to unpair a device, screen? (ID: 360058700673) - Status: unchanged
+2026-01-03 23:35:48,919 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,925 - INFO - Processing: How far back or how many posts will be fetched for my Social Walls? (ID: 360042424294) - Status: unchanged
+2026-01-03 23:35:48,926 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,932 - INFO - Processing: How to use iMovie content with OptiSigns? (ID: 360016494933) - Status: unchanged
+2026-01-03 23:35:48,932 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,854 - INFO - Processing: OptiKiosk 32 Setup and Troubleshooting Guide (ID: 44669013147923) - Status: unchanged
+2026-01-03 23:35:48,854 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,859 - INFO - Processing: Legacy DataSources (ID: 42915219118739) - Status: unchanged
+2026-01-03 23:35:48,859 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,866 - INFO - Processing: Shapes and Elements (ID: 42307234534547) - Status: unchanged
+2026-01-03 23:35:48,866 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,872 - INFO - Processing: Tutorial: Creating Schedules and Adding Schedule Items Using GraphQL (ID: 36558834998291) - Status: unchanged
+2026-01-03 23:35:48,872 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,878 - INFO - Processing: How to add captions to Vimeo videos (ID: 18500083191059) - Status: unchanged
+2026-01-03 23:35:48,879 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:48,879 - INFO - Page 9 processed in 0.11s (total: 0.70s)
+2026-01-03 23:35:48,879 - INFO - 
+Fetching page 10...
+2026-01-03 23:35:49,476 - INFO - Fetched 30 articles in 0.60s
+2026-01-03 23:35:49,477 - INFO - Processing 30 articles...
+2026-01-03 23:35:49,484 - INFO - Processing: Present / share your screen with OptiSigns & AeriCast Add-on (ID: 14502378549907) - Status: unchanged
+2026-01-03 23:35:49,484 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,489 - INFO - Processing: How to Delete Your Account from OptiSigns (ID: 4404608957075) - Status: unchanged
+2026-01-03 23:35:49,490 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,495 - INFO - Processing: Amazon Firestick (ID: 360016174554) - Status: unchanged
+2026-01-03 23:35:49,496 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,501 - INFO - Processing: Brand Kit and Enforcing Brand Guidelines (ID: 42313875427859) - Status: unchanged
+2026-01-03 23:35:49,501 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,507 - INFO - Processing: Update OptiSigns player on OptiSigns Pro Player (Gen 2) via script (ID: 21449362442003) - Status: unchanged
+2026-01-03 23:35:49,507 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,513 - INFO - Processing: How to use the MustHaveMenus  app with OptiSigns (ID: 12454101966355) - Status: unchanged
+2026-01-03 23:35:49,514 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,519 - INFO - Processing: Pagination (ID: 4414558369811) - Status: unchanged
+2026-01-03 23:35:49,519 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,525 - INFO - Processing: How to replace/update an existing asset (image, video, documents) (ID: 1500009498782) - Status: unchanged
+2026-01-03 23:35:49,525 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,530 - INFO - Processing: FireOS TVs (Amazon, Insigna, Toshiba, TCL) (ID: 1500009042742) - Status: unchanged
+2026-01-03 23:35:49,530 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,536 - INFO - Processing: About the OnHold Devices Folder (ID: 1500003244381) - Status: unchanged
+2026-01-03 23:35:49,536 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,541 - INFO - Processing: Creating and Using Schedules with OptiSigns (ID: 360016981853) - Status: unchanged
+2026-01-03 23:35:49,541 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,546 - INFO - Processing: Why Does My Screen Show as "Offline" on the Web Portal? (ID: 360016484473) - Status: unchanged
+2026-01-03 23:35:49,546 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,551 - INFO - Processing: How to use Waitwhile App (ID: 11784310183571) - Status: unchanged
+2026-01-03 23:35:49,552 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,557 - INFO - Processing: BrightSign Players (ID: 5090125683219) - Status: unchanged
+2026-01-03 23:35:49,557 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,562 - INFO - Processing: Error Handling (ID: 4414564078995) - Status: unchanged
+2026-01-03 23:35:49,563 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,569 - INFO - Processing: How can I improve stability of Fire TV as Digital Signage player? (ID: 360016484393) - Status: unchanged
+2026-01-03 23:35:49,569 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,574 - INFO - Processing: Can I have my invoices, receipts sent to a different email address? (ID: 360016375793) - Status: unchanged
+2026-01-03 23:35:49,575 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,580 - INFO - Processing: Subscription Function in GraphQL (ID: 36558469962643) - Status: unchanged
+2026-01-03 23:35:49,580 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,586 - INFO - Processing: How to display Google Slide in Portrait Mode (ID: 360019710493) - Status: unchanged
+2026-01-03 23:35:49,586 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,592 - INFO - Processing: What happen if internet connection is lost? (ID: 360016376793) - Status: unchanged
+2026-01-03 23:35:49,592 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,597 - INFO - Processing: Web browser as OptiSigns player (ID: 360016252394) - Status: unchanged
+2026-01-03 23:35:49,597 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,603 - INFO - Processing: Setting Up Your Samsung Smart Signage Platform (SSSP - Commercial Grade) (ID: 11116333259283) - Status: unchanged
+2026-01-03 23:35:49,603 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,609 - INFO - Processing: How to use Monday.com App (ID: 11032964830227) - Status: unchanged
+2026-01-03 23:35:49,609 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,615 - INFO - Processing: API Reference (ID: 4414558392339) - Status: unchanged
+2026-01-03 23:35:49,615 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,621 - INFO - Processing: How to export high resolution canvas, template designs (ID: 360060049534) - Status: unchanged
+2026-01-03 23:35:49,621 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,627 - INFO - Processing: Does OptiSigns support 4K content? (ID: 360016253874) - Status: unchanged
+2026-01-03 23:35:49,627 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,632 - INFO - Processing: Show Offline Indicator feature (ID: 12498801963027) - Status: unchanged
+2026-01-03 23:35:49,633 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,638 - INFO - Processing: How to use Website Screenshot app (ID: 10259143299219) - Status: unchanged
+2026-01-03 23:35:49,638 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,644 - INFO - Processing: LG WebOS Signage (Commercial Grade) (ID: 4414496579475) - Status: unchanged
+2026-01-03 23:35:49,645 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,650 - INFO - Processing: Is there storage limit for my account? (ID: 360016253694) - Status: unchanged
+2026-01-03 23:35:49,651 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:49,651 - INFO - Page 10 processed in 0.17s (total: 0.77s)
+2026-01-03 23:35:49,651 - INFO - 
+Fetching page 11...
+2026-01-03 23:35:50,307 - INFO - Fetched 30 articles in 0.66s
+2026-01-03 23:35:50,308 - INFO - Processing 30 articles...
+2026-01-03 23:35:50,320 - INFO - Processing: Show/Hide Offline Indicator on your Player (ID: 12947820509971) - Status: unchanged
+2026-01-03 23:35:50,320 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,326 - INFO - Processing: How to use Airtable with OptiSigns (ID: 9392587446675) - Status: unchanged
+2026-01-03 23:35:50,326 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,333 - INFO - Processing: How to Clean Data on the OptiSigns Android Stick (ID: 4404879296403) - Status: unchanged
+2026-01-03 23:35:50,333 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,339 - INFO - Processing: Use Your Mac/Windows Device as a Test Screen (ID: 360021856013) - Status: unchanged
+2026-01-03 23:35:50,339 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,344 - INFO - Processing: How do I suggest new features, improvement? (ID: 360016253574) - Status: unchanged
+2026-01-03 23:35:50,344 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,349 - INFO - Processing: How to use the QR Scan-to-Interact (Touchless QR) app (ID: 8899727608083) - Status: unchanged
+2026-01-03 23:35:50,350 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,355 - INFO - Processing: How to display SmartSheet report on OptiSigns (ID: 8399990754195) - Status: unchanged
+2026-01-03 23:35:50,355 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,360 - INFO - Processing: How to use the Video Stream app (ID: 8369526604435) - Status: unchanged
+2026-01-03 23:35:50,361 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,366 - INFO - Processing: How to use RTSP Stream on Fire Stick and OptiStick (ID: 8098889840531) - Status: unchanged
+2026-01-03 23:35:50,366 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,371 - INFO - Processing: How to use RTSP Stream on Windows or Raspberry Pi via OptiSigns  (ID: 8066591235603) - Status: unchanged
+2026-01-03 23:35:50,371 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,377 - INFO - Processing: How to Use the Weather Alert App (ID: 6757989639827) - Status: unchanged
+2026-01-03 23:35:50,377 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,382 - INFO - Processing: How to Use the CAP Alert App (ID: 6604468198291) - Status: unchanged
+2026-01-03 23:35:50,382 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,388 - INFO - Processing: How to use Matterport App (ID: 6091289267475) - Status: unchanged
+2026-01-03 23:35:50,388 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,393 - INFO - Processing: How to use OptiSigns Screen Capture app (ID: 6086986017299) - Status: unchanged
+2026-01-03 23:35:50,393 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,398 - INFO - Processing: How to use Advanced Website App (ID: 5149077938835) - Status: unchanged
+2026-01-03 23:35:50,398 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,403 - INFO - Processing: How to use Notion App (ID: 5119724468371) - Status: unchanged
+2026-01-03 23:35:50,403 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,408 - INFO - Processing: How to use Microsoft Excel Online with OptiSigns (ID: 4529298306963) - Status: unchanged
+2026-01-03 23:35:50,409 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,414 - INFO - Processing: How to display Microsoft Teams on OptiSigns (ID: 4417940565139) - Status: unchanged
+2026-01-03 23:35:50,414 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,420 - INFO - Processing: Displaying SharePoint Sites on OptiSigns (ID: 4414539282067) - Status: unchanged
+2026-01-03 23:35:50,420 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,425 - INFO - Processing: How to Use Microsoft PowerPoint with OptiSigns (ID: 4414355658899) - Status: unchanged
+2026-01-03 23:35:50,425 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,430 - INFO - Processing: How to use Microsoft Teams Live app with OptiSigns (ID: 4411530012307) - Status: unchanged
+2026-01-03 23:35:50,430 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,435 - INFO - Processing: How to use livestream.com app (ID: 4410655948563) - Status: unchanged
+2026-01-03 23:35:50,436 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,443 - INFO - Processing: How to Use the Emergency Feed App (ID: 4409673381011) - Status: unchanged
+2026-01-03 23:35:50,443 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,451 - INFO - Processing: How to setup WIFI with OptiSigns Admin mobile app on OptiSigns Pre-Configured Android Player (ID: 4409607912211) - Status: unchanged
+2026-01-03 23:35:50,451 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,459 - INFO - Processing: How to use MRSS feeds with OptiSigns (ID: 4409448788499) - Status: unchanged
+2026-01-03 23:35:50,459 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,466 - INFO - Processing: How to use Calendar Mix app (ID: 4408052949139) - Status: unchanged
+2026-01-03 23:35:50,466 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,473 - INFO - Processing: How to use Slack App (ID: 4407335862931) - Status: unchanged
+2026-01-03 23:35:50,473 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,480 - INFO - Processing: How to use Microsoft Meeting Room App (ID: 4406214738707) - Status: unchanged
+2026-01-03 23:35:50,480 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,486 - INFO - Processing: How to use LinkedIn App (ID: 4406180781203) - Status: unchanged
+2026-01-03 23:35:50,487 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,493 - INFO - Processing: How to use Microsoft Teams Meeting app with OptiSigns (ID: 4404053129619) - Status: unchanged
+2026-01-03 23:35:50,493 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:50,494 - INFO - Page 11 processed in 0.19s (total: 0.84s)
+2026-01-03 23:35:50,494 - INFO - 
+Fetching page 12...
+2026-01-03 23:35:51,087 - INFO - Fetched 30 articles in 0.59s
+2026-01-03 23:35:51,087 - INFO - Processing 30 articles...
+2026-01-03 23:35:51,094 - INFO - Processing: How to use the Social Mix App (ID: 4403267825171) - Status: unchanged
+2026-01-03 23:35:51,095 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,100 - INFO - Processing: How to use the CBC News App (ID: 1500011611322) - Status: unchanged
+2026-01-03 23:35:51,101 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,107 - INFO - Processing: How to use On This Day app (ID: 1500009492202) - Status: unchanged
+2026-01-03 23:35:51,107 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,114 - INFO - Processing: How to use the Taggbox Display app with OptiSigns (ID: 1500009343862) - Status: unchanged
+2026-01-03 23:35:51,114 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,121 - INFO - Processing: How to use the MindMeister App (ID: 1500005889381) - Status: unchanged
+2026-01-03 23:35:51,121 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,130 - INFO - Processing: How to Best Use Canva with OptiSigns (ID: 1500005888781) - Status: unchanged
+2026-01-03 23:35:51,130 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,136 - INFO - Processing: How to use Asana App (ID: 1500002233221) - Status: unchanged
+2026-01-03 23:35:51,137 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,143 - INFO - Processing: How to use YouTube Live with OptiSigns (ID: 1500002131621) - Status: unchanged
+2026-01-03 23:35:51,143 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,150 - INFO - Processing: How to use HDMI & other video input sources in with OptiSigns (ID: 1500002042241) - Status: unchanged
+2026-01-03 23:35:51,150 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,157 - INFO - Processing: How to Use the Local Folder App in OptiSigns (ID: 1500001985341) - Status: unchanged
+2026-01-03 23:35:51,158 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,165 - INFO - Processing: How to use YouTube Live Schedule with OptiSigns (ID: 360060284174) - Status: unchanged
+2026-01-03 23:35:51,165 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,172 - INFO - Processing: How to use YouTube Channel with OptiSigns  (ID: 360060202914) - Status: unchanged
+2026-01-03 23:35:51,173 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,181 - INFO - Processing: How to put ZenDesk Dashboard on your signs (ID: 360060919453) - Status: unchanged
+2026-01-03 23:35:51,182 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,189 - INFO - Processing: How to use Google Docs with OptiSigns (ID: 360058855273) - Status: unchanged
+2026-01-03 23:35:51,189 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,198 - INFO - Processing: How to use Google Sheets with OptiSigns (ID: 360056977214) - Status: unchanged
+2026-01-03 23:35:51,198 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,206 - INFO - Processing: How to use Scrolling Website App (ID: 360056356414) - Status: unchanged
+2026-01-03 23:35:51,207 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,213 - INFO - Processing: How to create and use Virtual Screen App (ID: 360055900513) - Status: unchanged
+2026-01-03 23:35:51,213 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,222 - INFO - Processing: How to use Kiosk Lite (formerly known as Interactive Kiosk app) (ID: 360053993934) - Status: unchanged
+2026-01-03 23:35:51,222 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,229 - INFO - Processing: How to Use the Flash Message App (ID: 360052827713) - Status: unchanged
+2026-01-03 23:35:51,229 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,237 - INFO - Processing: How to use Emergency Message/Alert App (ID: 360052513253) - Status: unchanged
+2026-01-03 23:35:51,237 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,245 - INFO - Processing: How to use Google Looker Studio with OptiSigns (formerly Data Studio) (ID: 360052088413) - Status: unchanged
+2026-01-03 23:35:51,246 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,252 - INFO - Processing: How to use Facebook Recommendations App (ID: 360051317774) - Status: unchanged
+2026-01-03 23:35:51,253 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,259 - INFO - Processing: How to use Instagram Business App (ID: 360051495193) - Status: unchanged
+2026-01-03 23:35:51,259 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,266 - INFO - Processing: How to use Trello App (ID: 360050244454) - Status: unchanged
+2026-01-03 23:35:51,266 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,273 - INFO - Processing: How to use YouTube with OptiSigns (ID: 360051014713) - Status: unchanged
+2026-01-03 23:35:51,274 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,280 - INFO - Processing: How to use Follow Us App (ID: 360049875794) - Status: unchanged
+2026-01-03 23:35:51,280 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,286 - INFO - Processing: How to use Facebook Video App (ID: 360049872414) - Status: unchanged
+2026-01-03 23:35:51,287 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,293 - INFO - Processing: How to use Dropbox App (ID: 360050665413) - Status: unchanged
+2026-01-03 23:35:51,293 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,300 - INFO - Processing: How to use the OneDrive App (ID: 360050665253) - Status: unchanged
+2026-01-03 23:35:51,300 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,306 - INFO - Processing: How to use Google Trends App (ID: 360050664913) - Status: unchanged
+2026-01-03 23:35:51,306 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,306 - INFO - Page 12 processed in 0.22s (total: 0.81s)
+2026-01-03 23:35:51,306 - INFO - 
+Fetching page 13...
+2026-01-03 23:35:51,864 - INFO - Fetched 30 articles in 0.56s
+2026-01-03 23:35:51,864 - INFO - Processing 30 articles...
+2026-01-03 23:35:51,870 - INFO - Processing: How to use Walls.io App (ID: 360049159814) - Status: unchanged
+2026-01-03 23:35:51,870 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,876 - INFO - Processing: How to use Currency Exchange App (ID: 360049156234) - Status: unchanged
+2026-01-03 23:35:51,876 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,883 - INFO - Processing: How to use Crypto Index & Crypto Exchange App (ID: 360049919933) - Status: unchanged
+2026-01-03 23:35:51,883 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,890 - INFO - Processing: How to use Market Index App (ID: 360049155994) - Status: unchanged
+2026-01-03 23:35:51,890 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,896 - INFO - Processing: How to use Google Drive App (ID: 360049518313) - Status: unchanged
+2026-01-03 23:35:51,897 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,902 - INFO - Processing: How to use the Twitter Counter App (ID: 360049328493) - Status: unchanged
+2026-01-03 23:35:51,902 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,907 - INFO - Processing: How to use the Motivational Quote App (ID: 360049030453) - Status: unchanged
+2026-01-03 23:35:51,907 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,912 - INFO - Processing: How to use Facebook Live Stream App (ID: 360048660813) - Status: unchanged
+2026-01-03 23:35:51,912 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,918 - INFO - Processing: How to use Instagram Counter App (ID: 360047501233) - Status: unchanged
+2026-01-03 23:35:51,918 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,923 - INFO - Processing: How to use Google Traffic App (ID: 360047499893) - Status: unchanged
+2026-01-03 23:35:51,923 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,928 - INFO - Processing: How to use Twitch App (ID: 360046859534) - Status: unchanged
+2026-01-03 23:35:51,928 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,932 - INFO - Processing: How to use the Facebook Counter App (ID: 360044619014) - Status: unchanged
+2026-01-03 23:35:51,933 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,938 - INFO - Processing: How to use the New York Times app (ID: 360045121233) - Status: unchanged
+2026-01-03 23:35:51,938 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,944 - INFO - Processing: How to use the Guardian App (ID: 360044613874) - Status: unchanged
+2026-01-03 23:35:51,944 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,950 - INFO - Processing: How to use the Wall Street Journal App (ID: 360045120133) - Status: unchanged
+2026-01-03 23:35:51,950 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,956 - INFO - Processing: How to use Stock App (ID: 360044115513) - Status: unchanged
+2026-01-03 23:35:51,956 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,962 - INFO - Processing: How to use Simple Clock App (ID: 360042950593) - Status: unchanged
+2026-01-03 23:35:51,962 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,968 - INFO - Processing: How to use World Clock App (ID: 360042450514) - Status: unchanged
+2026-01-03 23:35:51,969 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,976 - INFO - Processing: How to Use the CountUp App (ID: 360041222994) - Status: unchanged
+2026-01-03 23:35:51,976 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,982 - INFO - Processing: How to use the CountDown App (ID: 360041638433) - Status: unchanged
+2026-01-03 23:35:51,982 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,989 - INFO - Processing: How to use Simple Calendar App (ID: 360041481553) - Status: unchanged
+2026-01-03 23:35:51,989 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:51,995 - INFO - Processing: How to use the TechCrunch News App (ID: 360040991534) - Status: unchanged
+2026-01-03 23:35:51,995 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,001 - INFO - Processing: How to use the ESPN News App (ID: 360040991474) - Status: unchanged
+2026-01-03 23:35:52,002 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,008 - INFO - Processing: How to use the CNN News App (ID: 360041476213) - Status: unchanged
+2026-01-03 23:35:52,009 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,015 - INFO - Processing: How to use Notice Board app (ID: 360041428353) - Status: unchanged
+2026-01-03 23:35:52,015 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,021 - INFO - Processing: How to create and use QR Code, Call To Action app (ID: 360039264133) - Status: unchanged
+2026-01-03 23:35:52,022 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,028 - INFO - Processing: How to create and use Yelp Reviews Wall (ID: 360038769394) - Status: unchanged
+2026-01-03 23:35:52,028 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,034 - INFO - Processing: How to create and use Google Reviews Wall (ID: 360037463934) - Status: unchanged
+2026-01-03 23:35:52,034 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,040 - INFO - Processing: How to use Microsoft Outlook/Office 365 Calendar with OptiSigns (ID: 360036250853) - Status: unchanged
+2026-01-03 23:35:52,040 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,046 - INFO - Processing: How to use RSS feeds with OptiSigns (ID: 360037965133) - Status: unchanged
+2026-01-03 23:35:52,046 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,046 - INFO - Page 13 processed in 0.18s (total: 0.74s)
+2026-01-03 23:35:52,046 - INFO - 
+Fetching page 14...
+2026-01-03 23:35:52,610 - INFO - Fetched 9 articles in 0.56s
+2026-01-03 23:35:52,611 - INFO - Processing 9 articles...
+2026-01-03 23:35:52,615 - INFO - Processing: How to use Embed App (ID: 360035815114) - Status: unchanged
+2026-01-03 23:35:52,615 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,621 - INFO - Processing: How to display Microsoft Power BI Dashboards & Reports on a TV (ID: 360024859713) - Status: unchanged
+2026-01-03 23:35:52,621 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,626 - INFO - Processing: How to use Facebook Page App (ID: 360023848334) - Status: unchanged
+2026-01-03 23:35:52,626 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,632 - INFO - Processing: How to create and use Twitter Wall (ID: 360016375473) - Status: unchanged
+2026-01-03 23:35:52,632 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,638 - INFO - Processing: How to use published Google Slides with OptiSigns (old way) (ID: 360016375573) - Status: unchanged
+2026-01-03 23:35:52,638 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,643 - INFO - Processing: How to use the News App (ID: 360022393473) - Status: unchanged
+2026-01-03 23:35:52,643 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,648 - INFO - Processing: How to use Google Calendar with OptiSigns (ID: 360019517953) - Status: unchanged
+2026-01-03 23:35:52,648 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,655 - INFO - Processing: How to add & use Vimeo video with OptiSigns (ID: 360016254994) - Status: unchanged
+2026-01-03 23:35:52,655 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,661 - INFO - Processing: How to use a Website link with OptiSigns (ID: 360016382473) - Status: unchanged
+2026-01-03 23:35:52,661 - INFO -   Skipped: No changes detected
+2026-01-03 23:35:52,661 - INFO - Page 14 processed in 0.05s (total: 0.61s)
+2026-01-03 23:35:52,667 - INFO - Deletion check completed in 0.01s
+2026-01-03 23:35:52,668 - INFO - 
+============================================================
+2026-01-03 23:35:52,668 - INFO - === Crawl Summary ===
+2026-01-03 23:35:52,668 - INFO - ============================================================
+2026-01-03 23:35:52,668 - INFO - Added   articles: 0
+2026-01-03 23:35:52,669 - INFO - Updated articles: 0
+2026-01-03 23:35:52,669 - INFO - Skipped articles: 399
+2026-01-03 23:35:52,669 - INFO - ------------------------------------------------------------
+2026-01-03 23:35:52,669 - INFO - Total articles processed: 399
+2026-01-03 23:35:52,670 - INFO - Pages crawled: 14
+2026-01-03 23:35:52,670 - INFO - Crawl time: 11.40 seconds
+2026-01-03 23:35:52,671 - INFO - Avg time per page: 0.81s
+2026-01-03 23:35:52,679 - INFO - 
+============================================================
+2026-01-03 23:35:52,680 - INFO - No files to upload to GCS
+2026-01-03 23:35:52,680 - INFO - ============================================================
+2026-01-03 23:35:52,680 - INFO - 
+============================================================
+2026-01-03 23:35:52,681 - INFO - === Execution Complete ===
+2026-01-03 23:35:52,681 - INFO - ============================================================
+2026-01-03 23:35:52,681 - INFO - End time: 2026-01-03 23:35:52
+2026-01-03 23:35:52,681 - INFO - Total execution time: 11.43 seconds
+2026-01-03 23:35:52,682 - INFO - ============================================================
