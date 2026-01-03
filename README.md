@@ -37,6 +37,20 @@ To do this:
 Source: https://support.optisigns.com/articles/add-multiple-assets-to-playlists
 ```
 
+### Live Chatbot Demo
+
+See the chatbot in action answering user questions with direct links to source articles:
+
+![Chatbot Demo 1 - Question about playlists](result/chatbot-demo.png)
+*The chatbot answers questions and provides direct links to the relevant help articles*
+*Users can click the source link to read the full article on Zendesk*
+
+**Key Features Shown:**
+- ✅ Natural language question understanding
+- ✅ Accurate answers from your knowledge base
+- ✅ Direct links to source articles for more details
+- ✅ Fast, instant responses without human intervention
+
 ### System Logs & Results
 
 After running the crawler, check these folders:
@@ -65,15 +79,10 @@ Sync time: 3.45 minutes
 ============================================================
 ```
 
-**`output/` folder** - Generated markdown files:
+**`articles/` folder** - Generated markdown files:
 - Each article converted to `.md` format
 - Includes article titles, content, and source links
 - Ready for human review or further processing
-
-**`data/` folder** - SQLite database:
-- Tracks which articles have been processed
-- Monitors upload and sync status
-- Enables incremental updates (only syncs changes)
 
 ## Features
 
