@@ -75,6 +75,8 @@ python main.py
 
 ## View Results
 
+Result images can be viewed in folder `results/`
+
 ### Execution Logs
 Check the `logs/` directory for detailed execution logs:
 ```bash
